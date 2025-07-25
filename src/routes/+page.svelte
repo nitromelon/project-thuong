@@ -91,9 +91,19 @@
         }
     }
 
+	ul#menu {
+		list-style-type: none;
+		background-color: navy;
+	}
+
 	ul#menu li {
 		display: inline;
 	}
 
+	ul#menu li a {
+		justify-content: space-evenly;
+
+		color: beige;
+	}
 
 </style>
