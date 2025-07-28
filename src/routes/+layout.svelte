@@ -5,3 +5,8 @@
 </script>
 
 {@render children()}
+
+<svelte:head>
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+</svelte:head>
