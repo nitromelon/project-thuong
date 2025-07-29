@@ -45,6 +45,18 @@
     </button>
 </div>
 
+<header>
+    <h1>
+        <a href="/" onclick={(e) => { e.preventDefault(); menu = 0; }}>
+            {display_text($language_perference, "Chữ", "Words")}
+            <span style="color: #86756a;">
+                {display_text($language_perference, " và ", " and ")}
+            </span>
+            {display_text($language_perference, "Nghĩa", "Meaning")}
+        </a>
+    </h1>
+</header>
+
 <nav>
     <ul id="menu">
         <li><a href="/" onclick={(e) => { e.preventDefault(); menu = 1; }}>{display_text($language_perference, "Về dự án", "About")}</a></li> 
@@ -53,6 +65,8 @@
         <li><a href="/" onclick={(e) => { e.preventDefault(); menu = 4; }}>{display_text($language_perference, "Bạn nghĩ sao?", "Your Thoughts")}</a></li>
     </ul>
 </nav>
+
+<hr style="border-top: 1px solid beige;" />
 
 {#if menu === 1}
 <About />
@@ -72,7 +86,7 @@
 		top: 0;
 		z-index: 1000;
 		height: auto;
-        padding: 5px;
+        padding-left: 5px;
         background-color: var(--light-orange);
         color: var(--red);
         font-family:
@@ -92,6 +106,13 @@
             text-decoration: underline;
             cursor: pointer;
         }
+    }
+
+    h1 {
+        padding-bottom: 5px;
+        text-align: center;
+        font-size: 2em;
+        color: navy;
     }
 
 	ul#menu {
@@ -114,7 +135,7 @@
         text-decoration: none;
         font-family: "Josefin Sans", sans-serif;
         font-size: 1.5em;
-        padding: 20px;
+        padding: 5px;
 	}
 
 

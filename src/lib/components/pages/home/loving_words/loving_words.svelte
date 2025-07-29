@@ -3,7 +3,7 @@
     import FamilyImg from "$lib/assets/images/loving_words/family.svg";
     import LecturerImg from "$lib/assets/images/loving_words/lecturer.svg";
     import InterviewImg from "$lib/assets/images/loving_words/PV.svg";
-    import InterviewImg1 from "$lib/assets/images/loving_words/PV1.svg";
+    //import InterviewImg1 from "$lib/assets/images/loving_words/PV1.svg";
     import ProductionImg from "$lib/assets/images/loving_words/production.svg";
     import FollowersImg from "$lib/assets/images/loving_words/followers.svg";
 
