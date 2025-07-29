@@ -29,7 +29,7 @@
 	}
 </script>
 
-<section class="about-section wrapper center" on:wheel={handleWheel}>
+<section class="wrapper center" on:wheel={handleWheel}>
 	<div class="slider" style="transform: translateY(-{currentIndex * 100}vh)">
 		<div class="abstract row slide center">
 			<div class="column left">
@@ -168,7 +168,6 @@
 		height: 80%;
 		position: relative;
 		perspective: 500px;
-
 		transition: transform 0.8s ease;
 
 	}
