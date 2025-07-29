@@ -1,6 +1,5 @@
 <script lang="ts">
-
-
+    import Landing from "$lib/components/pages/home/landing/landing.svelte";
 	import About from "$lib/components/pages/home/about/about.svelte";
 	import Thuong_Unfolded from "$lib/components/pages/home/thuong_unfolded/thuong_unfolded.svelte";
     import Loving_Words from "$lib/components/pages/home/loving_words/loving_words.svelte";
@@ -11,7 +10,7 @@
         LayoutLanguage,
     } from "$lib/components/language/config";
 
-	export let menu = 1;
+	export let menu = 0;
 </script>
 
 <svelte:head>
@@ -64,9 +63,7 @@
 {:else if menu === 4}
 <YourThoughts />
 {:else}
-<h1>
-	Page Not Found
-</h1>
+<Landing />
 {/if}
 
 <style>
@@ -75,7 +72,7 @@
 		top: 0;
 		z-index: 1000;
 		height: auto;
-        padding: 16px;
+        padding: 5px;
         background-color: var(--light-orange);
         color: var(--red);
         font-family:
