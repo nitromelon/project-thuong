@@ -154,12 +154,12 @@
 	}
 
 	.wrapper {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
 		width: 100%;
 		height: 100vh;
-        overflow: hidden;
+		overflow: hidden;
 		position: relative;
 	}
 
@@ -169,11 +169,9 @@
 		position: relative;
 		perspective: 500px;
 		transition: transform 0.8s ease;
-
 	}
 
 	.slide {
 		height: 100vh;
 	}
-
 </style>
