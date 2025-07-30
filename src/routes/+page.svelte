@@ -156,7 +156,6 @@
 		list-style-type: none;
 		display: flex;
 		justify-content: space-evenly;
-		padding: 1em;
 		margin: 0;
 	}
 
