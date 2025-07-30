@@ -42,10 +42,11 @@
 	</button>
 </div>
 
+<!-- svelte-ignore a11y_invalid_attribute -->
 <header>
 	<h1>
 		<a
-			href="/"
+			href="#"
 			onclick={(e) => {
 				e.preventDefault();
 				menu = 0;
@@ -60,11 +61,12 @@
 	</h1>
 </header>
 
+<!-- svelte-ignore a11y_invalid_attribute -->
 <nav>
 	<ul id="menu">
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 1;
@@ -73,7 +75,7 @@
 		</li>
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 2;
@@ -82,7 +84,7 @@
 		</li>
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 3;
@@ -91,7 +93,7 @@
 		</li>
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 4;
