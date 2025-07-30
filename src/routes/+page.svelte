@@ -112,15 +112,14 @@
         padding-bottom: 5px;
         text-align: center;
         font-size: 2em;
-        color: navy;
+        color: var(--primary-blue);
     }
 
 	ul#menu {
-		background-color: navy;
 		list-style-type: none;
         display: flex;
         justify-content: space-evenly;
-        padding: 0;
+        padding: 1em;
         margin: 0;
 	}
 
@@ -130,13 +129,20 @@
 	}
 
 	ul#menu li a {
+        width: 99%;
+        background-color: var(--primary-blue);
+        display: inline-block;
 		color: beige;
-        display: block;
         text-decoration: none;
         font-family: "Josefin Sans", sans-serif;
         font-size: 1.5em;
-        padding: 5px;
+        padding: 0.5em 1em;
+        border-radius: 12px;             /* rounded corners */
+        transition: background 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 	}
 
-
+    ul#menu li a:hover {
+    background-color: #3c5b9b;       /* hover state */
+    }
 </style>

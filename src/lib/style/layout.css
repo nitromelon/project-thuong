@@ -20,7 +20,7 @@ body {
 	--full-page-height: 100lvh;
 	--white: oklch(97.69% 0.01847 75.239);
 	--beige: beige;
-	--navy: navy;
+	--primary-blue: #213555;
 }
 
 h1 {
@@ -31,7 +31,7 @@ h2 {
 	font-family: "Cormorant Garamond";
 	font-size: 4rem;
 	font-weight: bold;
-	color: navy;
+	color: var(--primary-blue);
 }
 
 h3 {

@@ -204,7 +204,7 @@
     }
 
     #followers {
-        background-color: navy;
+        background-color: var(--primary-blue);
         color: beige;
     }
     #followers h2 {

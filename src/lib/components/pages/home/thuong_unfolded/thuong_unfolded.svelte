@@ -189,7 +189,7 @@ input {
 }
 
 h1 {
-	color: navy;
+	color: var(--primary-blue);
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 2em;
 	text-align: center;
