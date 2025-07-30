@@ -1,8 +1,49 @@
+@font-face {
+	font-family: "TTNorms";
+	src: url("https://helix-dot-com-next-staging.vercel.app/_next/static/media/df24eec94c5e9db2-s.p.woff2")
+		format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 100 900;
+	font-style: oblique 0deg 10deg;
+	/* weight: '100 900'; */
+}
+
 body {
 	height: var(--full-page-height);
+	background-color: var(--white);
+	overflow: hidden;
 }
 
 .global-config {
 	--timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 	--full-page-height: 100lvh;
+	--white: oklch(97.69% 0.01847 75.239);
+	--beige: beige;
+	--primary-blue: #213555;
+}
+
+h1 {
+	font-family: "josefin-sans", sans-serif;
+}
+
+h2 {
+	font-family: "Cormorant Garamond";
+	font-size: 4rem;
+	font-weight: bold;
+	color: var(--primary-blue);
+}
+
+h3 {
+	font-family: "Josefin Sans";
+	font-weight: bold;
+	color: #a94a4a;
+}
+
+p {
+	font-family: "TTNorms";
+}
+
+.spacer {
+	height: 5vh;
 }
