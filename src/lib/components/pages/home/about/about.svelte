@@ -51,12 +51,12 @@
 				</div>
 			</div>
 			<div class="column right">
-				<img src={AbstractImg} alt="Haley" />
+				<img src={AbstractImg} alt="Haley" class="tilt-element" />
 			</div>
 		</div>
 		<div class="rationale row slide center">
 			<div class="column">
-				<img src={RationaleImg} alt="Rationale" />
+				<img src={RationaleImg} alt="Rationale" class="tilt-element" />
 			</div>
 			<div class="column right image-container">
 				<img src={RationaleBubbleImg} alt="Rationale Bubble" />
@@ -97,7 +97,7 @@
 				</p>
 			</div>
 			<div class="column right">
-				<img src={MessageImg} alt="Message" />
+				<img src={MessageImg} alt="Message" class="tilt-element"/>
 			</div>
 		</div>
 	</div>
@@ -220,4 +220,37 @@
 	.slide {
 		height: 100vh;
 	}
+
+	.tilt-element {
+		animation: tilt 2s infinite alternate ease-in-out;
+	}
+
+	@keyframes tilt {
+		0% {
+			transform: rotateZ(-3deg); /* Tilt slightly left */
+		}
+		50% {
+			transform: rotateZ(3deg); /* Tilt slightly right */
+		}
+		100% {
+			transform: rotateZ(-3deg); /* Return to slight left tilt */
+		}
+	}
+
+	.flip-element {
+		animation: flip 2s infinite alternate ease-in-out;
+	}
+
+	@keyframes flip {
+		0% {
+			transform: rotateY(0);
+		}
+		50% {
+			transform: rotateY(180deg);
+		}
+		100% {
+			transform: rotateY(0);
+		}
+	}
+
 </style>
