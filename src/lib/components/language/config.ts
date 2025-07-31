@@ -45,7 +45,7 @@ function storage<T>(key: string, init: T): Writable<T> {
 	return store;
 }
 
-const language_perference = storage<LanguagePreference>(LANGUAGE_PREFERENCE_KEYWORD, {
+const language_preference = storage<LanguagePreference>(LANGUAGE_PREFERENCE_KEYWORD, {
 	language: LayoutLanguage.English,
 });
 
@@ -53,4 +53,4 @@ export function display_text(preference: LanguagePreference, ...languages_text: 
 	return languages_text[preference.language] ?? "";
 }
 
-export default language_perference;
+export default language_preference;
