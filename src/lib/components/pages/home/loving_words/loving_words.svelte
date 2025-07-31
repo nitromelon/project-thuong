@@ -7,7 +7,7 @@
 	import ProductionImg from "$lib/assets/images/loving_words/production.svg";
 	import FollowersImg from "$lib/assets/images/loving_words/followers.svg";
 
-	import language_perference, { display_text } from "$lib/components/language/config";
+	import language_preference, { display_text } from "$lib/components/language/config";
 
 	// import { onMount } from 'svelte';
 
@@ -37,11 +37,11 @@
 		<div class="slide image-container">
 			<div class="text-overlay">
 				<h2>
-					{display_text($language_perference, "Mở đầu", "Acknowledgements")}
+					{display_text($language_preference, "Mở đầu", "Acknowledgements")}
 				</h2>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Dự án này không chỉ là hành trình của riêng mình. Từng dòng, từng thước phim, từng ý tưởng đều có sự góp mặt của những người đã thương mình bằng cách riêng của họ. Đây là nơi mình dệt những lời cảm ơn qua chữ, để ghi nhớ, để biết ơn, và để không quên.",
 						"I'm not alone in this journey. Every line, every frame, every idea bears the invaluable mark of those who generously supported me in their own unique ways. This is where I weave my heartfelt thanks through words, to remember, to cherish, and to never forget.",
 					)}
@@ -53,11 +53,11 @@
 			<img src={FamilyImg} alt="" srcset="" />
 			<div class="text-overlay">
 				<h2>
-					{display_text($language_perference, "Gia đình", "Family")}
+					{display_text($language_preference, "Gia đình", "Family")}
 				</h2>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Dù không trực tiếp quay hay dựng, nhưng luôn là người đồng hành thầm lặng nhất, cho mình thời gian, không gian và sự yên tâm để làm tới nơi tới chốn. Là nhà tài trợ vô điều kiện mỗi khi cần mua tài liệu, thiết bị, không quản vất vả đợi mình đi sớm về khuya. Hơn cả là ủng hộ mình dấn thân.",
 						"Though not directly involved in filming or editing, my family has been my most steadfast and silent supporters, graciously providing me with time, space, and the reassurance to pursue this work diligently. As unconditional benefactors, they have selflessly supported the acquisition of materials and equipment, enduring the challenges of my late returns and early departures. Above all, they have wholeheartedly encouraged me to embrace this bold undertaking.",
 					)}
@@ -71,13 +71,13 @@
 			<div class="text-overlay">
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên. Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
 						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception. Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
 					)}
 				</p>
 				<h2>
-					{display_text($language_perference, "Thầy cô cố vấn", "Lecturers and Mentors")}
+					{display_text($language_preference, "Thầy cô cố vấn", "Lecturers and Mentors")}
 				</h2>
 			</div>
 		</div>
@@ -87,11 +87,11 @@
 			<!-- <img src={InterviewImg1} alt="" srcset=""> -->
 			<div class="text-overlay">
 				<h2>
-					{display_text($language_perference, "Đơn vị / cá nhân tham gia phỏng vấn", "Interviewees")}
+					{display_text($language_preference, "Đơn vị / cá nhân tham gia phỏng vấn", "Interviewees")}
 				</h2>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						`Xin chân thành gửi lời cảm ơn tới:
                         - Đại đức Thích Minh Chính - Uỷ viên Thư ký Hội đồng Trị sự, Phó Chánh Văn phòng Trung Ương
                         - Trung tâm Easy Peasy Vietnamese - cùng chị Trâm (Founder) và các học viên: anh Luca, anh Florian và anh Sơn
@@ -119,11 +119,11 @@
 			<img src={ProductionImg} alt="" srcset="" />
 			<div class="text-overlay">
 				<h2>
-					{display_text($language_perference, "Các cá nhân hỗ trợ dự án", "Production Individuals")}
+					{display_text($language_preference, "Các cá nhân hỗ trợ dự án", "Production Individuals")}
 				</h2>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Xin gửi lời cảm ơn đến Việt Anh, anh Đức Anh và Đặng Nguyễn vì đã góp công, góp sức và đồng hành cùng mình qua từng khung hình, từng bản dựng, từng chi tiết nhỏ nhất.",
 						"Conveying my deepest gratitude to Việt Anh, Đức Anh, and Đặng Nguyễn, who, with their tireless efforts and unwavering support, have accompanied me through every frame, every edit, and the smallest details; their dedication has truly brought this project to life.",
 					)}
@@ -135,11 +135,11 @@
 			<img src={FollowersImg} alt="" srcset="" />
 			<div class="text-overlay">
 				<h2>
-					{display_text($language_perference, "Những người theo dõi", "Followers")}
+					{display_text($language_preference, "Những người theo dõi", "Followers")}
 				</h2>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Cảm ơn các bạn - những người đã ủng hộ và dõi theo 'Chữ và Nghĩa'. Dù đây chỉ là một hành trình nhỏ còn nhiều thiếu sót, nhưng luôn nhận được sự đón nhận từ mọi người và đó chính là nguồn động lực để dự án tiếp tục được nuôi lớn từng ngày.",
 						"Thank you to all the followers and supporters of this project. Your encouragement, shares, and feedback have been a tremendous source of motivation for me to keep going.",
 					)}

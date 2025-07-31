@@ -5,7 +5,7 @@
 	import Loving_Words from "$lib/components/pages/home/loving_words/loving_words.svelte";
 	import YourThoughts from "$lib/components/pages/home/your_thoughts/your_thoughts.svelte";
 
-	import language_perference, { display_text, LayoutLanguage } from "$lib/components/language/config";
+	import language_preference, { display_text, LayoutLanguage } from "$lib/components/language/config";
 
 	export let menu = 0;
 </script>
@@ -19,7 +19,7 @@
 		onclick={() => {
 			let language: LayoutLanguage;
 
-			switch ($language_perference.language) {
+			switch ($language_preference.language) {
 				case LayoutLanguage.English:
 					language = LayoutLanguage.Vietnamese;
 					break;
@@ -31,71 +31,73 @@
 					break;
 			}
 
-			$language_perference.language = language;
+			$language_preference.language = language;
 		}}
 	>
 		{display_text(
-			$language_perference,
+			$language_preference,
 			"This page is also available in English. Read this page in English.",
 			"Trang này cũng có phiên bản tiếng Việt. Đọc trang này bằng tiếng Việt.",
 		)}
 	</button>
 </div>
 
+<!-- svelte-ignore a11y_invalid_attribute -->
 <header>
 	<h1>
 		<a
-			href="/"
+			href="#"
 			onclick={(e) => {
 				e.preventDefault();
 				menu = 0;
 			}}
 		>
-			{display_text($language_perference, "Chữ", "Words")}
+			{display_text($language_preference, "Chữ", "Words")}
 			<span style="color: #86756a;">
-				{display_text($language_perference, " và ", " and ")}
+				{display_text($language_preference, " và ", " and ")}
 			</span>
-			{display_text($language_perference, "Nghĩa", "Meaning")}
+			{display_text($language_preference, "Nghĩa", "Meaning")}
 		</a>
 	</h1>
 </header>
 
+<!-- svelte-ignore a11y_invalid_attribute -->
 <nav>
 	<ul id="menu">
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 1;
-				}}>{display_text($language_perference, "Về dự án", "About")}</a
+				}}>{display_text($language_preference, "Về dự án", "About")}</a
 			>
 		</li>
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 2;
-				}}>{display_text($language_perference, "Chạm vào chữ", "'Thương' unfolded")}</a
+				}}>{display_text($language_preference, "Chạm vào chữ", "'Thương' unfolded")}</a
 			>
 		</li>
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 3;
-				}}>{display_text($language_perference, "Lời thương gửi lại", "Loving Words")}</a
+				}}>{display_text($language_preference, "Lời thương gửi lại", "Loving Words")}</a
 			>
 		</li>
 		<li>
 			<a
-				href="/"
+				href="#"
 				onclick={(e) => {
 					e.preventDefault();
 					menu = 4;
-				}}>{display_text($language_perference, "Bạn nghĩ sao?", "Your Thoughts")}</a
+				}}>{display_text($language_preference, "Bạn nghĩ sao?", "Your Thoughts")}</a
 			>
 		</li>
 	</ul>
@@ -154,7 +156,6 @@
 		list-style-type: none;
 		display: flex;
 		justify-content: space-evenly;
-		padding: 1em;
 		margin: 0;
 	}
 

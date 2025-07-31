@@ -4,7 +4,7 @@
 	import RationaleBubbleImg from "$lib/assets/images/about/rationale_bubble.svg";
 	import MessageImg from "$lib/assets/images/about/message.svg";
 
-	import language_perference, { display_text } from "$lib/components/language/config";
+	import language_preference, { display_text } from "$lib/components/language/config";
 
 	// import { onMount } from 'svelte';
 
@@ -34,64 +34,70 @@
 		<div class="abstract row slide center">
 			<div class="column left">
 				<h2>
-					{display_text($language_perference, "Về dự án", "About")}
+					{display_text($language_preference, "Về dự án", "About")}
 				</h2>
 				<h3>
-					{display_text($language_perference, "Điểm chạm đầu tiên.", "Abstract")}
+					{display_text($language_preference, "Điểm chạm đầu tiên.", "Abstract")}
 				</h3>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Dự án được thực hiện bởi Harley - sinh viên ngành Truyền thông, với mối quan tâm đặc biệt đến ngôn ngữ, văn hóa và những tầng nghĩa bị bỏ quên trong giao tiếp thường ngày",
 						"The project is carried out by Harley, a Communications student with a special interest in language, culture, and the overlooked layers of meaning in everyday communication.",
 					)}
 				</p>
+				<div class="scroll-hint">
+					<div class="arrow">↓</div>
+				</div>
 			</div>
 			<div class="column right">
-				<img src={AbstractImg} alt="Haley" />
+				<img src={AbstractImg} alt="Haley" class="tilt-element" />
 			</div>
 		</div>
 		<div class="rationale row slide center">
 			<div class="column">
-				<img src={RationaleImg} alt="Rationale" />
+				<img src={RationaleImg} alt="Rationale" class="tilt-element" />
 			</div>
 			<div class="column right image-container">
 				<img src={RationaleBubbleImg} alt="Rationale Bubble" />
 				<div class="text-overlay">
 					<h2>
-						{display_text($language_perference, "Về dự án", "About")}
+						{display_text($language_preference, "Về dự án", "About")}
 					</h2>
 					<h3>
-						{display_text($language_perference, "Vì sao là 'Thương'", "Rationale")}
+						{display_text($language_preference, "Vì sao là 'Thương'", "Rationale")}
 					</h3>
 					<p>
 						{display_text(
-							$language_perference,
+							$language_preference,
 							"'Thương' là một từ quen thuộc nhưng nhiều khi không thể định nghĩa rạch ròi. Vừa nhẹ nhàng, vừa day dứt, vừa bao dung, vừa riêng tư. Dự án này chọn 'thương' như một chiếc kính lúp để soi vào chiều sâu của ngôn ngữ và con người nơi lý trí và cảm xúc chạm nhau.",
 							"'Thương' is a familiar word, yet often difficult to define precisely. It is both gentle and poignant, both forgiving and deeply personal. This project chooses 'thương' as a magnifying glass to explore the depths of language and humanity, where reason and emotion intersect.",
 						)}
 					</p>
+				</div>
+				<div class="scroll-hint">
+					<div class="arrow">↓</div>
 				</div>
 			</div>
 		</div>
 		<div class="message row slide center">
 			<div class="column left">
 				<h2>
-					{display_text($language_perference, "Về dự án", "About")}
+					{display_text($language_preference, "Về dự án", "About")}
 				</h2>
 				<h3>
-					{display_text($language_perference, "Lời muốn nói", "Message")}
+					{display_text($language_preference, "Lời muốn nói", "Message")}
 				</h3>
 				<p>
 					{display_text(
-						$language_perference,
+						$language_preference,
 						"Qua dự án, mình mong muốn mở ra một không gian nơi mỗi người có thể dừng lại, lắng nghe và đặt lại câu hỏi: 'Thế nào là thương?' Không phải để tìm ra một câu trả lời chung, mà để nhận ra mỗi người có cách riêng để thương và được thương.",
 						"Through this project, I hope to create a space where each person can pause, listen, and revisit the question: 'What is 'thương'?' Not to find a universal answer, but to recognize that each individual has their own unique way of loving and being loved.",
 					)}
 				</p>
 			</div>
 			<div class="column right">
-				<img src={MessageImg} alt="Message" />
+				<img src={MessageImg} alt="Message" class="tilt-element"/>
 			</div>
 		</div>
 	</div>
@@ -102,6 +108,46 @@
 	@media screen and (max-width: 600px) {
 		.column {
 			width: 100%;
+		}
+	}
+
+	.scroll-hint {
+		margin-top: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		opacity: 0.8;
+		animation: bounce 2s infinite;
+	}
+
+	.arrow {
+		font-size: 1.5rem;
+		animation: float 1.5s ease-in-out infinite alternate;
+	}
+
+	@keyframes bounce {
+		0%,
+		20%,
+		50%,
+		80%,
+		100% {
+			transform: translateY(0);
+		}
+		40% {
+			transform: translateY(-8px);
+		}
+		60% {
+			transform: translateY(-4px);
+		}
+	}
+
+	@keyframes float {
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(-10px);
 		}
 	}
 
@@ -144,7 +190,7 @@
 
 	p {
 		text-align: justify;
-		font-size: 1.2em;
+		font-size: 1.5em;
 	}
 
 	* {
@@ -174,4 +220,37 @@
 	.slide {
 		height: 100vh;
 	}
+
+	.tilt-element {
+		animation: tilt 2s infinite alternate ease-in-out;
+	}
+
+	@keyframes tilt {
+		0% {
+			transform: rotateZ(-3deg); /* Tilt slightly left */
+		}
+		50% {
+			transform: rotateZ(3deg); /* Tilt slightly right */
+		}
+		100% {
+			transform: rotateZ(-3deg); /* Return to slight left tilt */
+		}
+	}
+
+	.flip-element {
+		animation: flip 2s infinite alternate ease-in-out;
+	}
+
+	@keyframes flip {
+		0% {
+			transform: rotateY(0);
+		}
+		50% {
+			transform: rotateY(180deg);
+		}
+		100% {
+			transform: rotateY(0);
+		}
+	}
+
 </style>

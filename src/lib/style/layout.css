@@ -9,10 +9,19 @@
 	/* weight: '100 900'; */
 }
 
+html {
+	-ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera */
+}
+
 body {
 	height: var(--full-page-height);
 	background-color: var(--white);
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .global-config {
@@ -21,6 +30,7 @@ body {
 	--white: oklch(97.69% 0.01847 75.239);
 	--beige: beige;
 	--primary-blue: #213555;
+	--dark-gold: #86756a;
 }
 
 h1 {
