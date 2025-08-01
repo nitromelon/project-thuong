@@ -1,4 +1,9 @@
-<section>
+<script>
+	import { fade } from 'svelte/transition';
+	
+</script>
+
+<section in:fade={{ duration: 400 }}>
 	<div class="row">
 		<div class="column left">
 			<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170.23 808.64">
@@ -192,16 +197,15 @@
 <style>
     * {
         overflow: hidden;
+		width: 100%;
     }
 
     .row {
 		display: flex;
-		padding: 5em;
 	}
 
 	.column {
 		flex: 50%;
-		padding: 20px;
 	}
 
     .animated-svg {

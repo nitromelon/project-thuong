@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	import AbstractImg from "$lib/assets/images/about/abstract.svg";
 	import RationaleImg from "$lib/assets/images/about/rationale_img.svg";
 	import RationaleBubbleImg from "$lib/assets/images/about/rationale_bubble.svg";
@@ -29,7 +31,7 @@
 	}
 </script>
 
-<section class="wrapper center" on:wheel={handleWheel}>
+<section class="wrapper center" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
 	<div class="slider" style="transform: translateY(-{currentIndex * 100}vh)">
 		<div class="abstract row slide center">
 			<div class="column left">
@@ -153,12 +155,12 @@
 
 	.row {
 		display: flex;
-		padding: 5em;
+		padding: 3em;
 	}
 
 	.column {
 		flex: 50%;
-		padding: 20px;
+		padding: 10px;
 	}
 
 	.image-container {
@@ -206,7 +208,7 @@
 		width: 100%;
 		height: 100vh;
 		overflow: hidden;
-		position: relative;
+		position: fixed;
 	}
 
 	.slider {
@@ -237,20 +239,5 @@
 		}
 	}
 
-	.flip-element {
-		animation: flip 2s infinite alternate ease-in-out;
-	}
-
-	@keyframes flip {
-		0% {
-			transform: rotateY(0);
-		}
-		50% {
-			transform: rotateY(180deg);
-		}
-		100% {
-			transform: rotateY(0);
-		}
-	}
 
 </style>
