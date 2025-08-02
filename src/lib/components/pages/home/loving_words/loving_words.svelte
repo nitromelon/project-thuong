@@ -25,7 +25,17 @@
 	import Family_Tom from "$lib/assets/images/loving_words/family/Tom.svg";
 
 	// lecturer images
+	import Lecturers_BG from "$lib/assets/images/loving_words/lecturers/background.svg";
+	import Lecturers_BG1 from "$lib/assets/images/loving_words/lecturers/background1.svg";
+	import Lecturers_BG2 from "$lib/assets/images/loving_words/lecturers/background2.svg";
+	import Lecturers_BG3 from "$lib/assets/images/loving_words/lecturers/background3.svg";
+	import Lecturers_BG4 from "$lib/assets/images/loving_words/lecturers/background4.svg";
+	import Lecturers_MrDucAnh from "$lib/assets/images/loving_words/lecturers/MrDucAnh.svg";
+	import Lecturers_MrsOanh from "$lib/assets/images/loving_words/lecturers/MrsOanh.svg";
+	import Lecturers_MrTony from "$lib/assets/images/loving_words/lecturers/MrTony.svg";
+	import Lecturers_MsThuHuyen from "$lib/assets/images/loving_words/lecturers/MsThuHuyen.svg";
 
+	// interview images
 	import InterviewImg from "$lib/assets/images/loving_words/PV.svg";
 	//import InterviewImg1 from "$lib/assets/images/loving_words/PV1.svg";
 	import ProductionImg from "$lib/assets/images/loving_words/production.svg";
@@ -118,82 +128,15 @@
 		</div>
 
 		<div class="slide image-container" id="lecturers">
-			<!-- <img src={LecturerImg} alt="" srcset="" /> -->
-			<svg class="lecturers-bg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220.88 847.22">
-				<defs>
-					<style>
-						.cls-1,
-						.cls-2 {
-							fill: none;
-						}
-
-						.cls-1,
-						.cls-2,
-						.cls-3 {
-							stroke-width: 2px;
-						}
-
-						.cls-1,
-						.cls-2,
-						.cls-3,
-						.cls-4 {
-							stroke-miterlimit: 10;
-						}
-
-						.cls-1,
-						.cls-4 {
-							stroke: #aa4a4b;
-						}
-
-						.cls-2,
-						.cls-3 {
-							stroke: #231f20;
-						}
-
-						.cls-3 {
-							fill: #231f20;
-						}
-
-						.cls-4 {
-							fill: #aa4a4b;
-							stroke-width: 6px;
-						}
-					</style>
-				</defs>
-				<path
-					class="cls-4"
-					d="M1127.37,837.54c-1.87-1.1-6.94-4.07-8.11-9.86-1.45-7.12,3.7-14.91,10.5-17.26,6.05-2.09,11.47.79,13.36,1.97,1.13.71,7.7,4.83,8.11,12.82.25,4.84-1.81,9.87-5.73,12.82-7.38,5.57-16.73.33-18.13-.49Z"
-				/>
-				<path
-					class="cls-4"
-					d="M1164.51,378.53c-3.69-1.89-9.33-1.51-12.43,2.47-3.3,4.25-1.94,10.36.96,13.83,3.96,4.75,11.63,5.58,15.29,1.98,4.48-4.41,2.52-15.03-3.82-18.28Z"
-				/>
-				<path
-					class="cls-1"
-					d="M1131.43,793.28c-1.28-4.09,1.23-8.87,5.17-10.69,3.72-1.72,8.78-.83,11.08,3.05,2.49,4.21.5,9.89-3.32,12.21-4.61,2.8-11.36.43-12.93-4.58Z"
-				/>
-				<path
-					class="cls-1"
-					d="M1151.28,798.85c1.95-1,4.55-.29,5.84,1.72,1.21,1.89.98,4.49-.56,6.04-1.89,1.91-5.18,1.65-6.81-.43-1.8-2.3-.97-6.05,1.53-7.33Z"
-				/>
-				<path
-					class="cls-2"
-					d="M1141.71,373.82c4.69-7.77,13.77-10.95,21.29-10.11,13.28,1.48,24.48,15.79,21.87,27.95-2.98,13.89-23.47,22.54-36.15,13.87-9.25-6.33-13.36-21.2-7.01-31.71Z"
-				/>
-				<path
-					class="cls-4"
-					d="M1192.16,631.2c-2.16-1.09-8.73-4.01-15.81-1.59-10.35,3.54-15.2,16.26-14.05,26.32.23,2,1.28,11.22,9.22,16.56,9.69,6.52,20.66,1.23,21.29.91-.22-14.07-.44-28.13-.66-42.2Z"
-				/>
-				<path
-					class="cls-2"
-					d="M1195.42,665.03c-2.09-.63-5.27-1.3-9.09-.98-6.94.58-16.77,4.5-20.07,13.5-1.79,4.87-.97,9.32-.57,11.35.35,1.76,1.72,8.77,7.01,12.53,5.93,4.22,15.21,3.22,22.72-2.74v-33.66Z"
-				/>
-				<path
-					class="cls-3"
-					d="M1178.22,609.74c-1.13-4.41-6.36-6.99-10.5-5.03-4.21,2-5.64,7.92-3.07,11.64,1.98,2.87,5.97,3.89,9.22,2.38,3.34-1.55,5.26-5.47,4.35-9Z"
-				/>
-			</svg>
-			
+			<img src={Lecturers_BG} alt="" srcset="" id="lecturers-bg"/>
+			<img src={Lecturers_BG1} alt="" srcset="" id="lecturers-bg1"/>
+			<img src={Lecturers_BG2} alt="" srcset="" id="lecturers-bg2"/>
+			<img src={Lecturers_BG3} alt="" srcset="" id="lecturers-bg3"/>
+			<img src={Lecturers_BG4} alt="" srcset="" id="lecturers-bg4"/>
+			<img src={Lecturers_MrDucAnh} alt="" srcset="" id="lecturers-mrducanh"/>
+			<img src={Lecturers_MrsOanh} alt="" srcset="" id="lecturers-mrsoanh"/>
+			<img src={Lecturers_MrTony} alt="" srcset="" id="lecturers-mrtony"/>
+			<img src={Lecturers_MsThuHuyen} alt="" srcset="" id="lecturers-msthuhuyen"/>
 
 			<div class="text-overlay">
 				<h2>
@@ -475,17 +418,64 @@
 	#lecturers .text-overlay {
 		width: 50%;
 		position: absolute;
-		top: 20%;
+		top: 30%;
 		left: 30%;
 		font-size: 0.8em;
 	}
-	.lecturers-bg {
+	#lecturers-bg {
 		position: absolute;
 		top: 7%;
-		right: 0;
+		right: -27%;
 		height: 70%;
 	}
-
+	#lecturers-bg1 {
+		position: absolute;
+		top: -5%;
+		left: 0;
+		width: 50%;
+	}
+	#lecturers-bg2 {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50%;
+	}
+	#lecturers-bg3 {
+		position: absolute;
+		top: 0%;
+		right: 6%;
+		width: 50%;
+	}
+	#lecturers-bg4 {
+		position: absolute;
+		bottom: 20%;
+		left: 5%;
+		height: 50%;
+	}
+	#lecturers-mrducanh {
+		position: absolute;
+		top: -1%;
+		right: 2%;
+		width: 60%;
+	}
+	#lecturers-mrsoanh {
+		position: absolute;
+		top: 0%;
+		left: 5%;
+		width: 50%;
+	}
+	#lecturers-mrtony {
+		position: absolute;
+		top: 0%;
+		left: -10%;
+		width: 100%;
+	}
+	#lecturers-msthuhuyen {
+		position: absolute;
+		top: 0%;
+		right: 1%;
+		width: 60%;
+	}
 
 	/* -=------------ PRODUCTION ------------ */
 	#production .text-overlay {

@@ -136,7 +136,7 @@
 
 	section {
 		position: absolute;
-		top: 20%;
+		top: 17%;
 		width: 100%;
 		transition: transform 0.3s ease;
 	}
