@@ -503,7 +503,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 50%;
+		width: 100%;
 	}
 	#lecturers-bg3 {
 		position: absolute;
@@ -514,8 +514,8 @@
 	#lecturers-bg4 {
 		position: absolute;
 		bottom: 20%;
-		left: 5%;
-		height: 50%;
+		left: 0%;
+		width: 100%;
 	}
 	#lecturers-mrducanh {
 		position: absolute;
