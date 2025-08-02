@@ -1,6 +1,33 @@
 <script lang="ts">
+	import { fade } from "svelte/transition";
+
+	// opnening images
+	import Opening_HA from "$lib/assets/images/loving_words/opening/ha.svg";
+	import Opening_Butterfly from "$lib/assets/images/loving_words/opening/background.svg";
+	import Opening_Sparkles from "$lib/assets/images/loving_words/opening/background2.svg";
+	import Opening_LeftBubble from "$lib/assets/images/loving_words/opening/background4.svg";
+	import Opening_RightBubble from "$lib/assets/images/loving_words/opening/background1.svg";
+
+	// family images
+	import Family_Brother from "$lib/assets/images/loving_words/family/brother.svg";
+	import Family_Em from "$lib/assets/images/loving_words/family/Em.svg";
+	import Family_BG from "$lib/assets/images/loving_words/family/background.svg";
+	import Family_BG1 from "$lib/assets/images/loving_words/family/background1.svg";
+	import Family_BG2 from "$lib/assets/images/loving_words/family/background2.svg";
+	import Family_BG3 from "$lib/assets/images/loving_words/family/background3.svg";
+	import Family_CanBo from "$lib/assets/images/loving_words/family/Can Bo.svg";
+	import Family_LanhDao from "$lib/assets/images/loving_words/family/Lanh Dao.svg";
+	import Family_Bong from "$lib/assets/images/loving_words/family/Bong.svg";
+	import Family_Bot from "$lib/assets/images/loving_words/family/Bot.svg";
+	import Family_Bun from "$lib/assets/images/loving_words/family/Bun.svg";
+	import Family_Mi from "$lib/assets/images/loving_words/family/Mi.svg";
+	import Family_Tep from "$lib/assets/images/loving_words/family/Tep.svg";
+	import Family_Tom from "$lib/assets/images/loving_words/family/Tom.svg";
+
+	// lecturer images
+
 	// import EndImg from "$lib/assets/images/loving_words/end.svg";
-	import FamilyImg from "$lib/assets/images/loving_words/family.svg";
+	// import FamilyImg from "$lib/assets/images/loving_words/family.svg";
 	import LecturerImg from "$lib/assets/images/loving_words/lecturer.svg";
 	import InterviewImg from "$lib/assets/images/loving_words/PV.svg";
 	//import InterviewImg1 from "$lib/assets/images/loving_words/PV1.svg";
@@ -8,12 +35,16 @@
 	import FollowersImg from "$lib/assets/images/loving_words/followers.svg";
 
 	import language_preference, { display_text } from "$lib/components/language/config";
+	import { currentIndex, isScrollProgress } from "../current_index.svelte";
+	import { onMount } from "svelte";
 
-	// import { onMount } from 'svelte';
-
-	let currentIndex = 0;
 	const totalSlides = 6;
 	let isThrottled = false;
+
+	onMount(() => {
+		$isScrollProgress = false;
+		$currentIndex = 0;
+	});
 
 	function handleWheel(event: WheelEvent) {
 		if (isThrottled) return;
@@ -22,35 +53,59 @@
 		setTimeout(() => (isThrottled = false), 800);
 
 		// scroll down
-		if (event.deltaY > 0 && currentIndex < totalSlides - 1) {
-			currentIndex += 1;
+		if (event.deltaY > 0 && $currentIndex < totalSlides - 1) {
+			$currentIndex += 1;
 		}
 		// scroll up
-		else if (event.deltaY < 0 && currentIndex > 0) {
-			currentIndex -= 1;
+		else if (event.deltaY < 0 && $currentIndex > 0) {
+			$currentIndex -= 1;
 		}
 	}
 </script>
 
-<section class="wrapper center" on:wheel={handleWheel}>
-	<div class="slider" style="transform: translateY(-{currentIndex * 100}vh)">
-		<div class="slide image-container">
+<section class="wrapper center" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
+	<div class="slider" style="transform: translateY(-{$currentIndex * 100}vh)">
+		<div class="slide image-container" id="opening">
+			<img src={Opening_HA} alt="" srcset="" id="opening-bottomleft" />
+			<img src={Opening_Butterfly} alt="" srcset="" id="opening-butterfly" />
+			<img src={Opening_Sparkles} alt="" srcset="" id="opening-topleft" />
+			<img src={Opening_Sparkles} alt="" srcset="" id="opening-bottomright" />
+			<img src={Opening_LeftBubble} alt="" srcset="" id="opening-leftbubble" />
+			<img src={Opening_RightBubble} alt="" srcset="" id="opening-rightbubble" />
+
 			<div class="text-overlay">
-				<h2>
-					{display_text($language_preference, "Mở đầu", "Acknowledgements")}
-				</h2>
 				<p>
 					{display_text(
 						$language_preference,
-						"Dự án này không chỉ là hành trình của riêng mình. Từng dòng, từng thước phim, từng ý tưởng đều có sự góp mặt của những người đã thương mình bằng cách riêng của họ. Đây là nơi mình dệt những lời cảm ơn qua chữ, để ghi nhớ, để biết ơn, và để không quên.",
-						"I'm not alone in this journey. Every line, every frame, every idea bears the invaluable mark of those who generously supported me in their own unique ways. This is where I weave my heartfelt thanks through words, to remember, to cherish, and to never forget.",
+						"Dự án này không chỉ là hành trình của riêng mình. Từng dòng, từng thước phim, từng ý tưởng đều có sự góp mặt của những người đã thương mình bằng cách riêng của họ.",
+						"I'm not alone in this journey. Every line, every frame, every idea bears the invaluable mark of those who generously supported me in their own unique ways.",
+					)}
+					<br /> <br />
+					{display_text(
+						$language_preference,
+						"Đây là nơi mình dệt những lời cảm ơn qua chữ, để ghi nhớ, để biết ơn, và để không quên.",
+						"This is where I weave my heartfelt thanks through words, to remember, to cherish, and to never forget.",
 					)}
 				</p>
 			</div>
 		</div>
 
-		<div class="slide image-container">
-			<img src={FamilyImg} alt="" srcset="" />
+		<div class="slide image-container" id="family">
+			<img src={Family_Brother} alt="Brother" id="family-brother" />
+			<img src={Family_Em} alt="Em" id="family-em" />
+			<img src={Family_BG} alt="Family Background" id="family-bg" />
+			<img src={Family_BG1} alt="Family Background 1" id="family-bg1" />
+			<img src={Family_BG2} alt="Family Background 2" id="family-bg2" />
+			<img src={Family_BG3} alt="Family Background 3" id="family-bg3" />
+			<img src={Family_CanBo} alt="Family Can Bo" id="family-canbo" />
+			<img src={Family_LanhDao} alt="Family Lanh Dao" id="family-lanhdao" />
+			<img src={Family_Bong} alt="Family Bong" id="family-bong" />
+			<img src={Family_Bot} alt="Family Bot" id="family-bot" />
+			<img src={Family_Bun} alt="Family Bun" id="family-bun" />
+			<img src={Family_Mi} alt="Family Mi" id="family-mi" />
+			<img src={Family_Tep} alt="Family Tep" id="family-tep" />
+			<img src={Family_Tom} alt="Family Tom" id="family-tom" />
+
 			<div class="text-overlay">
 				<h2>
 					{display_text($language_preference, "Gia đình", "Family")}
@@ -72,8 +127,8 @@
 				<p>
 					{display_text(
 						$language_preference,
-						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên. Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
-						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception. Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
+						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên.",
+						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception.d",
 					)}
 				</p>
 				<h2>
@@ -82,7 +137,24 @@
 			</div>
 		</div>
 
-		<div class="slide image-container">
+		<div class="slide image-container" id="lecturers">
+			<img src={LecturerImg} alt="" srcset="" />
+
+			<div class="text-overlay">
+				<p>
+					{display_text(
+						$language_preference,
+						"Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
+						"Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
+					)}
+				</p>
+				<h2>
+					{display_text($language_preference, "Thầy cô cố vấn", "Lecturers and Mentors")}
+				</h2>
+			</div>
+		</div>
+
+		<div class="slide image-container" id="interview">
 			<img src={InterviewImg} alt="" srcset="" />
 			<!-- <img src={InterviewImg1} alt="" srcset=""> -->
 			<div class="text-overlay">
@@ -159,14 +231,12 @@
 		width: 100%;
 		height: 100vh;
 		overflow: hidden;
-		position: relative;
+		position: fixed;
 	}
 
 	.slider {
-		width: 80%;
-		height: 80%;
-		position: relative;
-		perspective: 500px;
+		width: 100%;
+		height: 100%;
 		transition: transform 0.8s ease;
 	}
 
@@ -181,7 +251,7 @@
 
 	.image-container img {
 		width: 100%;
-		height: 90%;
+		height: 80%;
 	}
 
 	.text-overlay {
@@ -193,11 +263,159 @@
 		padding: 20px;
 	}
 
-	p {
-		text-align: justify;
-		font-size: 1.2em;
+	h2 {
+		font-family: "josefin-sans", sans-serif;
+		font-size: 3em;
+		font-weight: bold;
 	}
 
+	p {
+		text-align: justify;
+		font-size: 1.5em;
+	}
+
+	/* --------- OPENING ----------*/
+	#opening-topleft {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 30%;
+	}
+	#opening-butterfly {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 30%;
+	}
+	#opening-bottomleft {
+		position: absolute;
+		bottom: 0;
+		left: 5%;
+		width: 50%;
+	}
+	#opening-bottomright {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 20%;
+	}
+	#opening-leftbubble {
+		position: absolute;
+		bottom: 0;
+		left: 10%;
+	}
+	#opening-rightbubble {
+		position: absolute;
+		top: 10%;
+		right: 0%;
+		width: 50%;
+		transform: rotate(-45deg);
+	}
+	#opening p {
+		float: right;
+		width: 50%;
+	}
+
+	/* -=------------ Family ------------ */
+	#family h2 {
+		text-align: right;
+		position: absolute;
+		top: -40%;
+		right: 5%;
+	}
+	#family p {
+		text-align: center;
+	}
+	#family-brother {
+		position: absolute;
+		bottom: -4%;
+		right: -2%;
+		width: 20%;
+	}
+	#family-em {
+		position: absolute;
+		top: -25%;
+		left: -2%;
+		width: 20%;
+	}
+	#family-bg {
+		position: absolute;
+		top: -15%;
+		right: -5%;
+		width: 50%;
+		height: 50%;
+	}
+	#family-bg1 {
+		position: absolute;
+		top: -6%;
+		left: -6%;
+		width: 50%;
+		height: 50%;
+	}
+	#family-bg2 {
+		position: absolute;
+		bottom: 15%;
+		left: 0;
+		width: 50%;
+		height: 50%;
+	}
+	#family-bg3 {
+		position: absolute;
+		bottom: 20%;
+		right: -6%;
+		width: 50%;
+		height: 50%;
+	}
+	#family-canbo {
+		position: absolute;
+		bottom: 0%;
+		left: 5.5%;
+		width: 17%;
+	}
+	#family-lanhdao {
+		position: absolute;
+		bottom: 5%;
+		left: -2%;
+		width: 20%;
+	}
+	#family-bong {
+		position: absolute;
+		bottom: -10%;
+		right: 10%;
+		width: 5%;
+	}
+	#family-bot {
+		position: absolute;
+		bottom: -10%;
+		left: 20%;
+		width: 10%;
+	}
+	#family-bun {
+		position: absolute;
+		bottom: 15%;
+		right: 0%;
+		width: 10%;
+	}
+	#family-mi {
+		position: absolute;
+		bottom: -10%;
+		left: 70%;
+		width: 5%;
+	}
+	#family-tep {
+		position: absolute;
+		bottom: 14%;
+		right: 0%;
+		width: 4%;
+	}
+	#family-tom {
+		position: absolute;
+		bottom: -5%;
+		right: 35%;
+		width: 8%;
+	}
+
+	/* -=------------ LECTURERS ------------ */
 	#lecturers h2 {
 		float: right;
 		top: 0;
@@ -221,5 +439,13 @@
 	}
 	#followers h2 {
 		color: #86756a;
+	}
+
+	/* Patch */
+	#interview {
+		position: relative;
+		> img {
+			opacity: 0.4;
+		}
 	}
 </style>

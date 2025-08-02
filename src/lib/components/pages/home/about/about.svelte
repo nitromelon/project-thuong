@@ -1,16 +1,22 @@
 <script lang="ts">
+	import { fade } from "svelte/transition";
+
 	import AbstractImg from "$lib/assets/images/about/abstract.svg";
 	import RationaleImg from "$lib/assets/images/about/rationale_img.svg";
 	import RationaleBubbleImg from "$lib/assets/images/about/rationale_bubble.svg";
 	import MessageImg from "$lib/assets/images/about/message.svg";
 
 	import language_preference, { display_text } from "$lib/components/language/config";
+	import { currentIndex, isScrollProgress } from "../current_index.svelte";
+	import { onMount } from "svelte";
 
-	// import { onMount } from 'svelte';
-
-	let currentIndex = 0;
 	const totalSlides = 3;
 	let isThrottled = false;
+
+	onMount(() => {
+		$isScrollProgress = false;
+		$currentIndex = 0;
+	});
 
 	function handleWheel(event: WheelEvent) {
 		if (isThrottled) return;
@@ -19,18 +25,18 @@
 		setTimeout(() => (isThrottled = false), 800);
 
 		// scroll down
-		if (event.deltaY > 0 && currentIndex < totalSlides - 1) {
-			currentIndex += 1;
+		if (event.deltaY > 0 && $currentIndex < totalSlides - 1) {
+			$currentIndex += 1;
 		}
 		// scroll up
-		else if (event.deltaY < 0 && currentIndex > 0) {
-			currentIndex -= 1;
+		else if (event.deltaY < 0 && $currentIndex > 0) {
+			$currentIndex -= 1;
 		}
 	}
 </script>
 
-<section class="wrapper center" on:wheel={handleWheel}>
-	<div class="slider" style="transform: translateY(-{currentIndex * 100}vh)">
+<section class="wrapper center" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
+	<div class="slider" style="transform: translateY(-{$currentIndex * 100}vh)">
 		<div class="abstract row slide center">
 			<div class="column left">
 				<h2>
@@ -97,7 +103,7 @@
 				</p>
 			</div>
 			<div class="column right">
-				<img src={MessageImg} alt="Message" class="tilt-element"/>
+				<img src={MessageImg} alt="Message" class="tilt-element" />
 			</div>
 		</div>
 	</div>
@@ -153,12 +159,12 @@
 
 	.row {
 		display: flex;
-		padding: 5em;
+		padding: 3em;
 	}
 
 	.column {
 		flex: 50%;
-		padding: 20px;
+		padding: 10px;
 	}
 
 	.image-container {
@@ -206,7 +212,7 @@
 		width: 100%;
 		height: 100vh;
 		overflow: hidden;
-		position: relative;
+		position: fixed;
 	}
 
 	.slider {
