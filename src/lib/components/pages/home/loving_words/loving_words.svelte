@@ -263,7 +263,7 @@
 	}
 
 	h2 {
-		font-family: "josefin-sans", sans-serif;
+		font-family: "Josefin Sans", sans-serif;
 		font-size: 3em;
 		font-weight: bold;
 	}
