@@ -25,10 +25,17 @@
 	import Family_Tom from "$lib/assets/images/loving_words/family/Tom.svg";
 
 	// lecturer images
+	import Lecturers_BG from "$lib/assets/images/loving_words/lecturers/background.svg";
+	import Lecturers_BG1 from "$lib/assets/images/loving_words/lecturers/background1.svg";
+	import Lecturers_BG2 from "$lib/assets/images/loving_words/lecturers/background2.svg";
+	import Lecturers_BG3 from "$lib/assets/images/loving_words/lecturers/background3.svg";
+	import Lecturers_BG4 from "$lib/assets/images/loving_words/lecturers/background4.svg";
+	import Lecturers_MrDucAnh from "$lib/assets/images/loving_words/lecturers/MrDucAnh.svg";
+	import Lecturers_MrsOanh from "$lib/assets/images/loving_words/lecturers/MrsOanh.svg";
+	import Lecturers_MrTony from "$lib/assets/images/loving_words/lecturers/MrTony.svg";
+	import Lecturers_MsThuHuyen from "$lib/assets/images/loving_words/lecturers/MsThuHuyen.svg";
 
-	// import EndImg from "$lib/assets/images/loving_words/end.svg";
-	// import FamilyImg from "$lib/assets/images/loving_words/family.svg";
-	import LecturerImg from "$lib/assets/images/loving_words/lecturer.svg";
+	// interview images
 	import InterviewImg from "$lib/assets/images/loving_words/PV.svg";
 	//import InterviewImg1 from "$lib/assets/images/loving_words/PV1.svg";
 	import ProductionImg from "$lib/assets/images/loving_words/production.svg";
@@ -121,36 +128,28 @@
 		</div>
 
 		<div class="slide image-container" id="lecturers">
-			<img src={LecturerImg} alt="" srcset="" />
+			<img src={Lecturers_BG} alt="" srcset="" id="lecturers-bg"/>
+			<img src={Lecturers_BG1} alt="" srcset="" id="lecturers-bg1"/>
+			<img src={Lecturers_BG2} alt="" srcset="" id="lecturers-bg2"/>
+			<img src={Lecturers_BG3} alt="" srcset="" id="lecturers-bg3"/>
+			<img src={Lecturers_BG4} alt="" srcset="" id="lecturers-bg4"/>
+			<img src={Lecturers_MrDucAnh} alt="" srcset="" id="lecturers-mrducanh"/>
+			<img src={Lecturers_MrsOanh} alt="" srcset="" id="lecturers-mrsoanh"/>
+			<img src={Lecturers_MrTony} alt="" srcset="" id="lecturers-mrtony"/>
+			<img src={Lecturers_MsThuHuyen} alt="" srcset="" id="lecturers-msthuhuyen"/>
 
 			<div class="text-overlay">
+				<h2>
+					{display_text($language_preference, "Giảng viên", "Lecturers")}
+				</h2>
+				<br />
 				<p>
 					{display_text(
 						$language_preference,
-						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên.",
-						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception.d",
+						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên. Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
+						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception. Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
 					)}
 				</p>
-				<h2>
-					{display_text($language_preference, "Thầy cô cố vấn", "Lecturers and Mentors")}
-				</h2>
-			</div>
-		</div>
-
-		<div class="slide image-container" id="lecturers">
-			<img src={LecturerImg} alt="" srcset="" />
-
-			<div class="text-overlay">
-				<p>
-					{display_text(
-						$language_preference,
-						"Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
-						"Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
-					)}
-				</p>
-				<h2>
-					{display_text($language_preference, "Thầy cô cố vấn", "Lecturers and Mentors")}
-				</h2>
 			</div>
 		</div>
 
@@ -264,7 +263,7 @@
 	}
 
 	h2 {
-		font-family: "josefin-sans", sans-serif;
+		font-family: "Josefin Sans", sans-serif;
 		font-size: 3em;
 		font-weight: bold;
 	}
@@ -416,18 +415,69 @@
 	}
 
 	/* -=------------ LECTURERS ------------ */
-	#lecturers h2 {
-		float: right;
-		top: 0;
-	}
-	#lecturers p {
-		float: left;
+	#lecturers .text-overlay {
 		width: 50%;
-		padding-top: 30px;
-		padding-left: 60px;
-		padding-right: 20px;
+		position: absolute;
+		top: 30%;
+		left: 30%;
+		font-size: 0.8em;
+	}
+	#lecturers-bg {
+		position: absolute;
+		top: 7%;
+		right: -27%;
+		height: 70%;
+	}
+	#lecturers-bg1 {
+		position: absolute;
+		top: -5%;
+		left: 0;
+		width: 50%;
+	}
+	#lecturers-bg2 {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50%;
+	}
+	#lecturers-bg3 {
+		position: absolute;
+		top: 0%;
+		right: 6%;
+		width: 50%;
+	}
+	#lecturers-bg4 {
+		position: absolute;
+		bottom: 20%;
+		left: 5%;
+		height: 50%;
+	}
+	#lecturers-mrducanh {
+		position: absolute;
+		top: -1%;
+		right: 2%;
+		width: 60%;
+	}
+	#lecturers-mrsoanh {
+		position: absolute;
+		top: 0%;
+		left: 5%;
+		width: 50%;
+	}
+	#lecturers-mrtony {
+		position: absolute;
+		top: 0%;
+		left: -10%;
+		width: 100%;
+	}
+	#lecturers-msthuhuyen {
+		position: absolute;
+		top: 0%;
+		right: 1%;
+		width: 60%;
 	}
 
+	/* -=------------ PRODUCTION ------------ */
 	#production .text-overlay {
 		top: 30%;
 		width: 60%;

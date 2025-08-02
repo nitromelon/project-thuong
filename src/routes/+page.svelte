@@ -6,20 +6,15 @@
 	import Thuong_Unfolded from "$lib/components/pages/home/thuong_unfolded/thuong_unfolded.svelte";
 	import Loving_Words from "$lib/components/pages/home/loving_words/loving_words.svelte";
 	import YourThoughts from "$lib/components/pages/home/your_thoughts/your_thoughts.svelte";
-	import { currentIndex, isScrollProgress } from "$lib/components/pages/home/current_index.svelte";
 
 	export let menu = 0;
-
-	let header_height = 0;
-	$: hide_header = $isScrollProgress || $currentIndex != 0;
-	$: offset_top = -header_height * (hide_header ? 1 : 0);
 </script>
 
 <svelte:head>
 	<title>Chữ và Nghĩa</title>
 </svelte:head>
 
-<header bind:offsetHeight={header_height} style:transform="translateY({offset_top}px)">
+<header>
 	<div class="translate-wrapper">
 		<button
 			onclick={() => {
@@ -115,7 +110,7 @@
 	<hr style="border-top: 1px solid beige;" />
 </header>
 
-<section style:transform="translateY({offset_top / 2}px)">
+<section>
 	{#if menu === 1}
 		<About />
 	{:else if menu === 2}
@@ -141,7 +136,7 @@
 
 	section {
 		position: absolute;
-		top: 20%;
+		top: 17%;
 		width: 100%;
 		transition: transform 0.3s ease;
 	}
@@ -168,6 +163,7 @@
 	}
 
 	h1 {
+		margin-top: -20px;
 		padding-bottom: 5px;
 		text-align: center;
 		font-size: 3em;
@@ -178,7 +174,6 @@
 		list-style-type: none;
 		display: flex;
 		justify-content: space-evenly;
-		margin: 0;
 	}
 
 	ul#menu li {

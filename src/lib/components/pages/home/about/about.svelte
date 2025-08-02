@@ -199,12 +199,6 @@
 		font-size: 1.5em;
 	}
 
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
 	.wrapper {
 		display: flex;
 		justify-content: center;
@@ -240,22 +234,6 @@
 		}
 		100% {
 			transform: rotateZ(-3deg); /* Return to slight left tilt */
-		}
-	}
-
-	.flip-element {
-		animation: flip 2s infinite alternate ease-in-out;
-	}
-
-	@keyframes flip {
-		0% {
-			transform: rotateY(0);
-		}
-		50% {
-			transform: rotateY(180deg);
-		}
-		100% {
-			transform: rotateY(0);
 		}
 	}
 
