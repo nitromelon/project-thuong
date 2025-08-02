@@ -196,7 +196,7 @@
 	/>
 </svg>
 
-<section >
+<section>
 	<div id="intro-box">
 		{display_text($language_preference, "Dự án cá nhân", "Personal Project")} - Harley Nguyen
 	</div>
@@ -267,7 +267,7 @@
 		color: var(--primary-blue);
 		margin-left: 10%;
 		padding-top: 10%;
-		font-family: 'TT Norms Pro', sans-serif;
+		font-family: "TT Norms Pro", sans-serif;
 	}
 
 	#intro-box {
@@ -371,8 +371,8 @@
 	}
 
 	nav a {
-			display: inline-block;
-			margin-top: 15px;
-			margin-left: 5px;
-		}
+		display: inline-block;
+		margin-top: 15px;
+		margin-left: 5px;
+	}
 </style>

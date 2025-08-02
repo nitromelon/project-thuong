@@ -35,12 +35,16 @@
 	import FollowersImg from "$lib/assets/images/loving_words/followers.svg";
 
 	import language_preference, { display_text } from "$lib/components/language/config";
+	import { currentIndex, isScrollProgress } from "../current_index.svelte";
+	import { onMount } from "svelte";
 
-	// import { onMount } from 'svelte';
-
-	let currentIndex = 0;
 	const totalSlides = 6;
 	let isThrottled = false;
+
+	onMount(() => {
+		$isScrollProgress = false;
+		$currentIndex = 0;
+	});
 
 	function handleWheel(event: WheelEvent) {
 		if (isThrottled) return;
@@ -49,18 +53,18 @@
 		setTimeout(() => (isThrottled = false), 800);
 
 		// scroll down
-		if (event.deltaY > 0 && currentIndex < totalSlides - 1) {
-			currentIndex += 1;
+		if (event.deltaY > 0 && $currentIndex < totalSlides - 1) {
+			$currentIndex += 1;
 		}
 		// scroll up
-		else if (event.deltaY < 0 && currentIndex > 0) {
-			currentIndex -= 1;
+		else if (event.deltaY < 0 && $currentIndex > 0) {
+			$currentIndex -= 1;
 		}
 	}
 </script>
 
 <section class="wrapper center" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
-	<div class="slider" style="transform: translateY(-{currentIndex * 100}vh)">
+	<div class="slider" style="transform: translateY(-{$currentIndex * 100}vh)">
 		<div class="slide image-container" id="opening">
 			<img src={Opening_HA} alt="" srcset="" id="opening-bottomleft" />
 			<img src={Opening_Butterfly} alt="" srcset="" id="opening-butterfly" />
@@ -123,8 +127,25 @@
 				<p>
 					{display_text(
 						$language_preference,
-						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên. Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
-						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception. Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
+						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên.",
+						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception.d",
+					)}
+				</p>
+				<h2>
+					{display_text($language_preference, "Thầy cô cố vấn", "Lecturers and Mentors")}
+				</h2>
+			</div>
+		</div>
+
+		<div class="slide image-container" id="lecturers">
+			<img src={LecturerImg} alt="" srcset="" />
+
+			<div class="text-overlay">
+				<p>
+					{display_text(
+						$language_preference,
+						"Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
+						"Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
 					)}
 				</p>
 				<h2>
@@ -418,5 +439,13 @@
 	}
 	#followers h2 {
 		color: #86756a;
+	}
+
+	/* Patch */
+	#interview {
+		position: relative;
+		> img {
+			opacity: 0.4;
+		}
 	}
 </style>

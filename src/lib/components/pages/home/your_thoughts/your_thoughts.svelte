@@ -1,6 +1,12 @@
 <script>
-	import { fade } from 'svelte/transition';
-	
+	import { onMount } from "svelte";
+	import { fade } from "svelte/transition";
+	import { currentIndex, isScrollProgress } from "../current_index.svelte";
+
+	onMount(() => {
+		$currentIndex = 0;
+		$isScrollProgress = false;
+	});
 </script>
 
 <section in:fade={{ duration: 400 }}>
@@ -28,7 +34,13 @@
 			</svg>
 		</div>
 		<div class="column right">
-			<svg class="animated-svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1046.24 660.58">
+			<svg
+				class="animated-svg"
+				id="Layer_1"
+				data-name="Layer 1"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 1046.24 660.58"
+			>
 				<defs>
 					<style>
 						.cls-1 {
@@ -195,12 +207,12 @@
 </section>
 
 <style>
-    * {
-        overflow: hidden;
+	* {
+		overflow: hidden;
 		width: 100%;
-    }
+	}
 
-    .row {
+	.row {
 		display: flex;
 	}
 
@@ -208,15 +220,15 @@
 		flex: 50%;
 	}
 
-    .animated-svg {
-        /* Apply animation */
+	.animated-svg {
+		/* Apply animation */
 		animation-name: bounce;
 		animation-duration: 1.5s;
 		animation-iteration-count: infinite;
 		animation-timing-function: ease-in-out;
-    }
+	}
 
-    @keyframes bounce {
+	@keyframes bounce {
 		0%,
 		100% {
 			transform: translateY(0);
