@@ -279,6 +279,13 @@
 		font-weight: bold;
 	}
 
+	section {
+		font-size: 1.7em;
+		color: var(--primary-blue);
+		margin-top: 10%;
+		margin-left: 10%;
+	}
+
 	/* Animation styles for paths */
 	.animated-path {
 		stroke-dasharray: 1000;

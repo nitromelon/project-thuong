@@ -242,4 +242,21 @@
 			transform: rotateZ(-3deg); /* Return to slight left tilt */
 		}
 	}
+
+	.flip-element {
+		animation: flip 2s infinite alternate ease-in-out;
+	}
+
+	@keyframes flip {
+		0% {
+			transform: rotateY(0);
+		}
+		50% {
+			transform: rotateY(180deg);
+		}
+		100% {
+			transform: rotateY(0);
+		}
+	}
+
 </style>
