@@ -163,6 +163,7 @@
 	}
 
 	h1 {
+		margin-top: -20px;
 		padding-bottom: 5px;
 		text-align: center;
 		font-size: 3em;
@@ -173,7 +174,6 @@
 		list-style-type: none;
 		display: flex;
 		justify-content: space-evenly;
-		margin: 0;
 	}
 
 	ul#menu li {
