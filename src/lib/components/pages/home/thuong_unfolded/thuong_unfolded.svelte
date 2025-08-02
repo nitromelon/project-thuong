@@ -1,41 +1,112 @@
-<script lang="ts">
-	import language_preference, { display_text } from "$lib/components/language/config";
-
-	import WorkingStackedScroll from "$lib/components/pages/home/thuong_unfolded/WorkingStackedScroll.svelte";
-
-	const customSections = [
-		{
-			id: "section1",
-			title: display_text($language_preference, "Vượt lên một từ đơn", "More than a single word"),
-			content: display_text(
-				$language_preference,
-				'Trong các cuốn từ điển hay sách giáo khoa, một từ thường được định nghĩa một cách rõ ràng, cụ thể. Tuy nhiên, khi nói đến "thương", mọi định nghĩa dường như trở thành một thách thức lớn.',
-				"More than a single word",
-			),
-		},
-		{
-			id: "section2",
-			title: "Ngữ pháp kể chuyện",
-			content:
-				"Cảm xúc không chỉ nằm ở nghĩa, mà còn ở cách câu được nói ra, viết xuống. Một tiếng “thương” có thể là hành động, là trạng thái, là nhịp lặng giữa hai dòng thoại, hay thậm chí là tất cả cùng một lúc.",
-		},
-		{
-			id: "section3",
-			title: "Ngữ âm vẽ nghĩa",
-			content:
-				"Cảm xúc không chỉ nằm ở nghĩa, mà còn ở cách câu được nói ra, viết xuống. Một tiếng “thương” có thể là hành động, là trạng thái, là nhịp lặng giữa hai dòng thoại, hay thậm chí là tất cả cùng một lúc.",
-		},
-		{
-			id: "section4",
-			title: "'Thương' trong dòng chảy văn học",
-			content:
-				"Thương từ lâu đã trở thành một chất liệu thân thuộc trong sáng tác. Nó là chủ đề, là cảm hứng, là lối nói không thể thiếu khi nhà văn, nhà thơ, nghệ sĩ muốn khắc họa cảm xúc con người, từ tình yêu đôi lứa, tình cảm gia đình, tình đồng bào đến nỗi đau mất mát hay những nhớ thương xa xứ.",
-		},
-		// ... more sections
-	];
+<script>
+  import { onMount } from 'svelte';
+  
+  let scrollY = 0;
+  let windowHeight = 0;
+  
+  const sections = [
+    { text: "Welcome to our site", bg: "#1a1a1a", color: "#ffffff" },
+    { text: "Discover amazing content", bg: "#2c3e50", color: "#ecf0f1" },
+    { text: "Scroll to explore more", bg: "#34495e", color: "#ffffff" },
+    { text: "Each section reveals itself", bg: "#16a085", color: "#ffffff" },
+    { text: "As you continue scrolling", bg: "#27ae60", color: "#ffffff" },
+    { text: "Creating a unique experience", bg: "#2980b9", color: "#ffffff" },
+    { text: "Thank you for visiting", bg: "#8e44ad", color: "#ffffff" }
+  ];
+  
+  function getTransform(index) {
+    const sectionStart = index * windowHeight;
+    const sectionEnd = (index + 1) * windowHeight;
+    const progress = (scrollY - sectionStart) / windowHeight;
+    
+    if (scrollY < sectionStart) {
+      // Section hasn't been reached yet
+      return {
+        scale: 1,
+        opacity: 0,
+        zIndex: sections.length - index
+      };
+    } else if (scrollY >= sectionStart && scrollY < sectionEnd) {
+      // Current section being scrolled
+      const scale = 1 + (progress * 0.5); // Scale up to 1.5x
+      const opacity = 1 - progress; // Fade out
+      return {
+        scale,
+        opacity,
+        zIndex: sections.length - index + 10 // Bring to front
+      };
+    } else {
+      // Section has been passed
+      return {
+        scale: 1.5,
+        opacity: 0,
+        zIndex: sections.length - index
+      };
+    }
+  }
+  
+  onMount(() => {
+    windowHeight = window.innerHeight;
+    
+    const handleResize = () => {
+      windowHeight = window.innerHeight;
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
 </script>
 
-<WorkingStackedScroll sections={customSections} />
+<svelte:window bind:scrollY />
 
-<style>
+<div class="container" style="height: {sections.length * 100}vh;">
+  {#each sections as section, i}
+    {@const transform = getTransform(i)}
+    <div 
+      class="section"
+      style="
+        background-color: {section.bg};
+        color: {section.color};
+        transform: scale({transform.scale});
+        opacity: {transform.opacity};
+        z-index: {transform.zIndex};
+      "
+    >
+      <h1>{section.text}</h1>
+    </div>
+  {/each}
+</div>
+
+<style>  
+  .container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .section {
+	pointer-events: none;
+    position: fixed;
+    top: 17%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    will-change: transform, opacity;
+  }
+  
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: clamp(2rem, 8vw, 4rem);
+    text-align: center;
+    margin: 0;
+    padding: 0 2rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
 </style>
