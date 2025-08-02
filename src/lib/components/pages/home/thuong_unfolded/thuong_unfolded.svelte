@@ -29,16 +29,6 @@
   
   let scrollY = 0;
   let windowHeight = 0;
-  
-  const sections = [
-    { text: "Welcome to our site", bg: "#1a1a1a", color: "#ffffff" },
-    { text: "Discover amazing content", bg: "#2c3e50", color: "#ecf0f1" },
-    { text: "Scroll to explore more", bg: "#34495e", color: "#ffffff" },
-    { text: "Each section reveals itself", bg: "#16a085", color: "#ffffff" },
-    { text: "As you continue scrolling", bg: "#27ae60", color: "#ffffff" },
-    { text: "Creating a unique experience", bg: "#2980b9", color: "#ffffff" },
-    { text: "Thank you for visiting", bg: "#8e44ad", color: "#ffffff" }
-  ];
 
   const components = [
 	Page1,
@@ -70,32 +60,32 @@
   ];
   
   function getTransform(index) {
-    const sectionStart = index * windowHeight;
-    const sectionEnd = (index + 1) * windowHeight;
-    const progress = (scrollY - sectionStart) / windowHeight;
+    const componentStart = index * windowHeight;
+    const componentEnd = (index + 1) * windowHeight;
+    const progress = (scrollY - componentStart) / windowHeight;
     
-    if (scrollY < sectionStart) {
+    if (scrollY < componentStart) {
       // Section hasn't been reached yet
       return {
         scale: 1,
         opacity: 0,
-        zIndex: sections.length - index
+        zIndex: components.length - index
       };
-    } else if (scrollY >= sectionStart && scrollY < sectionEnd) {
+    } else if (scrollY >= componentStart && scrollY < componentEnd) {
       // Current section being scrolled
       const scale = 1 + (progress * 0.5); // Scale up to 1.5x
       const opacity = 1 - progress; // Fade out
       return {
         scale,
         opacity,
-        zIndex: sections.length - index + 10 // Bring to front
+        zIndex: components.length - index + 10 // Bring to front
       };
     } else {
       // Section has been passed
       return {
         scale: 1.5,
         opacity: 0,
-        zIndex: sections.length - index
+        zIndex: components.length - index
       };
     }
   }
@@ -117,20 +107,18 @@
 
 <svelte:window bind:scrollY />
 
-<div class="container" style="height: {sections.length * 100}vh;">
-  {#each sections as section, i}
+<div class="container" style="height: {components.length * 100}vh;">
+  {#each components as component, i}
     {@const transform = getTransform(i)}
     <div 
-      class="section"
+      class="slide"
       style="
-        background-color: {section.bg};
-        color: {section.color};
         transform: scale({transform.scale});
         opacity: {transform.opacity};
         z-index: {transform.zIndex};
       "
     >
-      <h1>{section.text}</h1>
+      <svelte:component this={component} />
     </div>
   {/each}
 </div>
@@ -140,8 +128,8 @@
     position: relative;
     width: 100%;
   }
-  
-  .section {
+
+  .slide {
 	pointer-events: none;
     position: fixed;
     top: 17%;
@@ -153,15 +141,8 @@
     justify-content: center;
     transition: transform 0.1s ease-out, opacity 0.1s ease-out;
     will-change: transform, opacity;
+	transition-timing-function: var(--timing-function);
+	transition-duration: 1s;
   }
   
-  h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    font-size: clamp(2rem, 8vw, 4rem);
-    text-align: center;
-    margin: 0;
-    padding: 0 2rem;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-  }
 </style>

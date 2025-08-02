@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onDestroy } from "svelte";
 	import { fade } from "svelte/transition";
 
 	// opnening images
@@ -92,6 +93,10 @@
 		document.body.style.transition = "background-color 0.8s ease";
 		document.body.style.backgroundColor = "";
 	}
+
+	onDestroy(() => {
+		document.body.style.removeProperty("background-color");
+	});
 </script>
 
 <section class="wrapper" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
