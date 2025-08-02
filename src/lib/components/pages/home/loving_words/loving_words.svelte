@@ -36,9 +36,23 @@
 	import Lecturers_MsThuHuyen from "$lib/assets/images/loving_words/lecturers/MsThuHuyen.svg";
 
 	// interview images
-	import InterviewImg from "$lib/assets/images/loving_words/PV.svg";
-	//import InterviewImg1 from "$lib/assets/images/loving_words/PV1.svg";
-	import ProductionImg from "$lib/assets/images/loving_words/production.svg";
+	import Interview_BG from "$lib/assets/images/loving_words/interview/background.svg";
+	import Interview_BG1 from "$lib/assets/images/loving_words/interview/background1.svg";
+	import Interview_BG2 from "$lib/assets/images/loving_words/interview/background2.svg";
+	import Interview_BG3 from "$lib/assets/images/loving_words/interview/background3.svg";
+	import Interview_BG4 from "$lib/assets/images/loving_words/interview/background4.svg";
+
+	// production images
+	import Production_BubbleLeft from "$lib/assets/images/loving_words/production/bubble_left.svg";
+	import Production_BubbleRight from "$lib/assets/images/loving_words/production/bubble_right.svg";
+	import Production_BubbleUnder from "$lib/assets/images/loving_words/production/bubble_under.svg";
+	import Prodution_Star1 from "$lib/assets/images/loving_words/production/star1.svg";
+	import Prodution_Star2 from "$lib/assets/images/loving_words/production/star2.svg";
+	import Production_DucAnh from "$lib/assets/images/loving_words/production/DucAnh.svg";
+	import Production_VietAnh from "$lib/assets/images/loving_words/production/VietAnh.svg";
+	import Production_DangNguyen from "$lib/assets/images/loving_words/production/DangNguyen.svg";
+
+	// followers images
 	import FollowersImg from "$lib/assets/images/loving_words/followers.svg";
 
 	import language_preference, { display_text } from "$lib/components/language/config";
@@ -67,6 +81,16 @@
 		else if (event.deltaY < 0 && $currentIndex > 0) {
 			$currentIndex -= 1;
 		}
+	}
+
+	// Reactive statement to handle background color change with smooth transition
+	$: if ($currentIndex === totalSlides - 1) {
+		document.body.style.transition = "background-color 0.8s ease";
+		document.body.style.backgroundColor = "var(--primary-blue)";
+	} else {
+		// Reset background color when not on last slide with smooth transition
+		document.body.style.transition = "background-color 0.8s ease";
+		document.body.style.backgroundColor = "";
 	}
 </script>
 
@@ -128,15 +152,15 @@
 		</div>
 
 		<div class="slide image-container" id="lecturers">
-			<img src={Lecturers_BG} alt="" srcset="" id="lecturers-bg"/>
-			<img src={Lecturers_BG1} alt="" srcset="" id="lecturers-bg1"/>
-			<img src={Lecturers_BG2} alt="" srcset="" id="lecturers-bg2"/>
-			<img src={Lecturers_BG3} alt="" srcset="" id="lecturers-bg3"/>
-			<img src={Lecturers_BG4} alt="" srcset="" id="lecturers-bg4"/>
-			<img src={Lecturers_MrDucAnh} alt="" srcset="" id="lecturers-mrducanh"/>
-			<img src={Lecturers_MrsOanh} alt="" srcset="" id="lecturers-mrsoanh"/>
-			<img src={Lecturers_MrTony} alt="" srcset="" id="lecturers-mrtony"/>
-			<img src={Lecturers_MsThuHuyen} alt="" srcset="" id="lecturers-msthuhuyen"/>
+			<img src={Lecturers_BG} alt="" srcset="" id="lecturers-bg" />
+			<img src={Lecturers_BG1} alt="" srcset="" id="lecturers-bg1" />
+			<img src={Lecturers_BG2} alt="" srcset="" id="lecturers-bg2" />
+			<img src={Lecturers_BG3} alt="" srcset="" id="lecturers-bg3" />
+			<img src={Lecturers_BG4} alt="" srcset="" id="lecturers-bg4" />
+			<img src={Lecturers_MrDucAnh} alt="" srcset="" id="lecturers-mrducanh" />
+			<img src={Lecturers_MrsOanh} alt="" srcset="" id="lecturers-mrsoanh" />
+			<img src={Lecturers_MrTony} alt="" srcset="" id="lecturers-mrtony" />
+			<img src={Lecturers_MsThuHuyen} alt="" srcset="" id="lecturers-msthuhuyen" />
 
 			<div class="text-overlay">
 				<h2>
@@ -154,44 +178,78 @@
 		</div>
 
 		<div class="slide image-container" id="interview">
-			<img src={InterviewImg} alt="" srcset="" />
-			<!-- <img src={InterviewImg1} alt="" srcset=""> -->
+			<img src={Interview_BG} alt="" srcset="" id="interview-bg" />
+			<img src={Interview_BG1} alt="" srcset="" id="interview-bg1" />
+			<img src={Interview_BG2} alt="" srcset="" id="interview-bg2" />
+			<img src={Interview_BG3} alt="" srcset="" id="interview-bg3" />
+			<img src={Interview_BG4} alt="" srcset="" id="interview-bg4" />
+
 			<div class="text-overlay">
 				<h2>
 					{display_text($language_preference, "Đơn vị / cá nhân tham gia phỏng vấn", "Interviewees")}
 				</h2>
 				<p>
+					<span style="color: darkblue;"
+						>{display_text(
+							$language_preference,
+							"Xin chân thành gửi lời cảm ơn tới:",
+							"I wish to extend my deepest and most respectful gratitude to the following individuals and organizations who have graciously contributed to this project:",
+						)}</span
+					>
+					<br />
 					{display_text(
 						$language_preference,
-						`Xin chân thành gửi lời cảm ơn tới:
-                        - Đại đức Thích Minh Chính - Uỷ viên Thư ký Hội đồng Trị sự, Phó Chánh Văn phòng Trung Ương
-                        - Trung tâm Easy Peasy Vietnamese - cùng chị Trâm (Founder) và các học viên: anh Luca, anh Florian và anh Sơn
-                        - MC Mỹ Vân - Trung tâm đào tạo MC Mỹ Vân
-                        - Em Vũ Phúc Huy
-                        - Em Lê Nữ Minh Ngọc
-                        - Bạn Phạm Thanh Tâm
-                        - Anh Tống Đức Hưng
-                        đã hỗ trợ tham gia phỏng vấn.`,
-						`I wish to extend my deepest and most respectful gratitude to the following individuals and organizations who have graciously contributed to this project:
-                        - Venerable Thích Minh Chính - Secretary of the Executive Council, Deputy Head of the Central Office
-                        - Easy Peasy Vietnamese Center - including Ms. Trâm (Founder) and esteemed learners: Mr. Luca, Mr. Florian, and Mr. Sơn
-                        - MC Mỹ Vân - Mỹ Vân MC Training Center
-                        - Vũ Phúc Huy
-                        - Lê Nữ Minh Ngọc
-                        - Phạm Thanh Tâm
-                        - Tống Đức Hưng
-                    for their invaluable participation and support in the interviews.`,
+						"- Đại đức Thích Minh Chính - Uỷ viên Thư ký Hội đồng Trị sự, Phó Chánh Văn phòng Trung Ương",
+						"- Venerable Thích Minh Chính - Secretary of the Executive Council, Deputy Head of the Central Office",
 					)}
+					<br />
+					{display_text(
+						$language_preference,
+						"- Trung tâm Easy Peasy Vietnamese - cùng chị Trâm (Founder) và các học viên: anh Luca, anh Florian và anh Sơn",
+						"- Easy Peasy Vietnamese Center - including Ms. Trâm (Founder) and esteemed learners: Mr. Luca, Mr. Florian, and Mr. Sơn",
+					)}
+					<br />
+					{display_text(
+						$language_preference,
+						"- MC Mỹ Vân - Trung tâm đào tạo MC Mỹ Vân",
+						"- MC Mỹ Vân - Mỹ Vân MC Training Center",
+					)}
+					<br />
+					{display_text($language_preference, "- Em Vũ Phúc Huy", "- Vũ Phúc Huy")}
+					<br />
+					{display_text($language_preference, "- Em Lê Nữ Minh Ngọc", "- Lê Nữ Minh Ngọc")}
+					<br />
+					{display_text($language_preference, "- Bạn Phạm Thanh Tâm", "- Phạm Thanh Tâm")}
+					<br />
+					{display_text($language_preference, "- Anh Tống Đức Hưng", "- Tống Đức Hưng")}
+					<br />
+					<span style="color: darkblue;"
+						>{display_text(
+							$language_preference,
+							"đã hỗ trợ tham gia phỏng vấn.",
+							"for their invaluable participation and support in the interviews.",
+						)}</span
+					>
 				</p>
 			</div>
 		</div>
 
 		<div class="slide image-container" id="production">
-			<img src={ProductionImg} alt="" srcset="" />
+			<img src={Production_BubbleUnder} alt="" srcset="" id="production-bubbleunder" />
+			<img src={Production_BubbleLeft} alt="" srcset="" id="production-bubbleleft" />
+			<img src={Production_BubbleRight} alt="" srcset="" id="production-bubbleright" />
+			<img src={Prodution_Star1} alt="" srcset="" id="production-star1" />
+			<img src={Prodution_Star2} alt="" srcset="" id="production-star2" />
+			<img src={Prodution_Star2} alt="" srcset="" id="production-star3" />
+			<img src={Production_DucAnh} alt="" srcset="" id="production-ducanh" />
+			<img src={Production_VietAnh} alt="" srcset="" id="production-vietanh" />
+			<img src={Production_DangNguyen} alt="" srcset="" id="production-dangnguyen" />
+
 			<div class="text-overlay">
-				<h2>
-					{display_text($language_preference, "Các cá nhân hỗ trợ dự án", "Production Individuals")}
-				</h2>
+				<h3>
+					{display_text($language_preference, "Cá nhân hỗ trợ sản xuất", "Production Individuals")}
+				</h3>
+				<br />
 				<p>
 					{display_text(
 						$language_preference,
@@ -205,14 +263,21 @@
 		<div class="slide image-container" id="followers">
 			<img src={FollowersImg} alt="" srcset="" />
 			<div class="text-overlay">
-				<h2>
-					{display_text($language_preference, "Những người theo dõi", "Followers")}
-				</h2>
 				<p>
 					{display_text(
 						$language_preference,
-						"Cảm ơn các bạn - những người đã ủng hộ và dõi theo 'Chữ và Nghĩa'. Dù đây chỉ là một hành trình nhỏ còn nhiều thiếu sót, nhưng luôn nhận được sự đón nhận từ mọi người và đó chính là nguồn động lực để dự án tiếp tục được nuôi lớn từng ngày.",
-						"Thank you to all the followers and supporters of this project. Your encouragement, shares, and feedback have been a tremendous source of motivation for me to keep going.",
+						"Cảm ơn các bạn - những người đã ủng hộ và dõi theo",
+						"Thank you to all the followers and supporters of this project",
+					)}
+					<br />
+					<span style="color: #ffbd59;">
+						{display_text($language_preference, "'Chữ và Nghĩa'", "'Words and Meaning'")}
+					</span>
+					<br /> <br />
+					{display_text(
+						$language_preference,
+						"Dù đây chỉ là một hành trình nhỏ còn nhiều thiếu sót, nhưng luôn nhận được sự đón nhận từ mọi người và đó chính là nguồn động lực để dự án tiếp tục được nuôi lớn từng ngày.",
+						"Your encouragement, shares, and feedback have been a tremendous source of motivation for me to keep going.",
 					)}
 				</p>
 			</div>
@@ -438,7 +503,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 50%;
+		width: 90%;
 	}
 	#lecturers-bg3 {
 		position: absolute;
@@ -449,8 +514,8 @@
 	#lecturers-bg4 {
 		position: absolute;
 		bottom: 20%;
-		left: 5%;
-		height: 50%;
+		left: 0%;
+		width: 100%;
 	}
 	#lecturers-mrducanh {
 		position: absolute;
@@ -477,25 +542,140 @@
 		width: 60%;
 	}
 
+	/* -=------------ INTERVIEW ------------ */
+	#interview-bg {
+		position: absolute;
+		height: 84%;
+		left: -0.5%;
+		top: 0;
+		width: 100%;
+	}
+	#interview-bg1 {
+		position: absolute;
+		width: 100%;
+		top: -25%;
+		left: -25%;
+	}
+	#interview-bg2 {
+		position: absolute;
+		width: 100%;
+		top: -25%;
+		right: -25%;
+	}
+	#interview-bg3 {
+		position: absolute;
+		width: 100%;
+		top: 10%;
+		right: -27%;
+	}
+	#interview-bg4 {
+		position: absolute;
+		width: 100%;
+		top: 10%;
+		left: -30%;
+	}
+	#interview .text-overlay {
+		text-align: center;
+		position: absolute;
+		top: 50%;
+	}
+	#interview h2 {
+		/* font-size: 2.5em; */
+		color: #ffbd59;
+	}
+	#interview p {
+		text-align: center;
+	}
+
 	/* -=------------ PRODUCTION ------------ */
 	#production .text-overlay {
-		top: 30%;
+		top: 25%;
 		width: 60%;
 	}
+	#production-bubbleunder {
+		position: absolute;
+		top: -15%;
+		left: -5%;
+		width: 100%;
+	}
+	#production-bubbleleft {
+		position: absolute;
+		top: 0;
+		left: -10%;
+		height: 60%;
+	}
+	#production-bubbleright {
+		position: absolute;
+		top: -10%;
+		right: 20%;
+		width: 50%;
+	}
+	#production-star1 {
+		position: absolute;
+		top: 5%;
+		right: -25%;
+		height: 70%;
+	}
+	#production-star2 {
+		position: absolute;
+		top: 10%;
+		left: 2%;
+		width: 50%;
+	}
+	#production-star3 {
+		position: absolute;
+		top: -15%;
+		left: 30%;
+		width: 50%;
+		transform: rotate(-90deg);
+	}
+	#production-vietanh {
+		position: absolute;
+		top: 10%;
+		left: 0;
+		width: 40%;
+	}
+	#production-ducanh {
+		position: absolute;
+		bottom: 0;
+		right: -5%;
+		width: 30%;
+	}
+	#production-dangnguyen {
+		position: absolute;
+		bottom: 0;
+		right: 10%;
+		width: 20%;
+	}
 
+	#production h3 {
+		text-align: center;
+		font-size: 2.5em;
+	}
+	#production p {
+		text-align: center;
+		width: 60%;
+		margin-left: 20%;
+	}
+
+	/* -=------------ FOLLOWERS ------------ */
 	#followers {
-		background-color: var(--primary-blue);
+		/* background-color: var(--primary-blue); */
 		color: beige;
 	}
-	#followers h2 {
-		color: #86756a;
+	#followers img {
+		width: 80%;
+		margin-left: 10%;
 	}
-
-	/* Patch */
-	#interview {
-		position: relative;
-		> img {
-			opacity: 0.4;
-		}
+	#followers .text-overlay {
+		position: absolute;
+		top: 40%;
+		left: 68%;
+		width: 40%;
+		color: beige;
+	}
+	#followers p {
+		font-family: "Crimson Pro", serif;
+		text-align: center;
 	}
 </style>

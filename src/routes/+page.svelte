@@ -91,7 +91,7 @@
 					onclick={(e) => {
 						e.preventDefault();
 						menu = 3;
-					}}>{display_text($language_preference, "Lời thương gửi lại", "Loving Words")}</a
+					}}>{display_text($language_preference, "Lời thương gửi lại", "Graced by Aid")}</a
 				>
 			</li>
 			<li>
