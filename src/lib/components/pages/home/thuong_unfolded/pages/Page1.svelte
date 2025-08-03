@@ -6,7 +6,7 @@
 
 <style>
 	img {
-        width: 50%;
+        height: 75%;
         display: block;
         margin: auto;
 	}
