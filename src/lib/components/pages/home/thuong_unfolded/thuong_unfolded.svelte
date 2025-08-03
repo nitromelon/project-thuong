@@ -25,7 +25,9 @@
 	import Page24 from "./pages/Page24.svelte";
 	import Page25 from "./pages/Page25.svelte";
 	import Page26 from "./pages/Page26.svelte";
+
 	import { onMount } from "svelte";
+	import language_preference, { display_text } from "$lib/components/language/config";
 
 	let scrollY = 0;
 	let windowHeight = 0;
@@ -107,7 +109,7 @@
 
 <svelte:window bind:scrollY />
 
-<section>
+<!-- <section>
 	<div class="wrapper">
 		<label for="book-on"></label>
 		<div class="content-wrapper" style="height: {components.length * 100}vh;">
@@ -147,14 +149,30 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
+
+<div class="container" style="height: {components.length * 100}vh;">
+  {#each components as component, i}
+    {@const transform = getTransform(i)}
+    <div 
+      class="slide"
+      style="
+        transform: scale({transform.scale});
+        opacity: {transform.opacity};
+        z-index: {transform.zIndex};
+      "
+    >
+      <svelte:component this={component} />
+    </div>
+  {/each}
+</div>
 
 <style>
-	section {
+	.container {
 		position: relative;
 		width: 100%;
 		height: 100vh;
-		overflow-x: hidden;
+		/* overflow-x: hidden; */
 	}
 
 	.slide {
@@ -163,10 +181,10 @@
 		top: 17%;
 		left: 0;
 		width: 100%;
-		height: 100vh;
+		height: 83vh;
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		/* align-items: center;
+		justify-content: center; */
 		transition:
 			transform 0.1s ease-out,
 			opacity 0.1s ease-out;
