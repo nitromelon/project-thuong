@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Page1 from "./pages/Page1.svelte";
 	import Page2 from "./pages/Page2.svelte";
 	import Page3 from "./pages/Page3.svelte";
@@ -61,7 +61,13 @@
 		Page26,
 	];
 
-	function getTransform(index) {
+	let componentStyles = Array.from({ length: components.length }, (_, index) => getTransform(index));
+
+	$: if (windowHeight !== 0 || scrollY) {
+		componentStyles = componentStyles.map((_, index) => getTransform(index));
+	}
+
+	function getTransform(index: number) {
 		const componentStart = index * windowHeight;
 		const componentEnd = (index + 1) * windowHeight;
 		const progress = (scrollY - componentStart) / windowHeight;
@@ -152,19 +158,20 @@
 </section> -->
 
 <div class="container" style="height: {components.length * 100}vh;">
-  {#each components as component, i}
-    {@const transform = getTransform(i)}
-    <div 
-      class="slide"
-      style="
-        transform: scale({transform.scale});
-        opacity: {transform.opacity};
-        z-index: {transform.zIndex};
-      "
-    >
-      <svelte:component this={component} />
-    </div>
-  {/each}
+	{#each components as component, i}
+		<!-- {@const transform = getTransform(i)} -->
+		{@const transform = componentStyles[i]!}
+		<div
+			class="slide"
+			style="
+				transform: scale({transform.scale});
+				opacity: {transform.opacity};
+				z-index: {transform.zIndex};
+      		"
+		>
+			<svelte:component this={component} />
+		</div>
+	{/each}
 </div>
 
 <style>
@@ -197,7 +204,7 @@
 		perspective: 1200px;
 		display: flex;
 		justify-content: center;
-		align-items: center; 
+		align-items: center;
 
 		> label {
 			position: absolute;
