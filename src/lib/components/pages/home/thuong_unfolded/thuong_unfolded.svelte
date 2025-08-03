@@ -29,7 +29,7 @@
 	import { onMount } from "svelte";
 	import language_preference, { display_text } from "$lib/components/language/config";
 
-	let scrollY = 0;
+	let scrollY = -0.1;
 	let windowHeight = 0;
 
 	const components = [
@@ -115,19 +115,19 @@
 
 <svelte:window bind:scrollY />
 
-<!-- <section>
+ <!-- <section>
 	<div class="wrapper">
 		<label for="book-on"></label>
 		<div class="content-wrapper" style="height: {components.length * 100}vh;">
 			{#each components as component, i}
-				{@const transform = getTransform(i)}
+				{@const transform = componentStyles[i]!}
 				<div
 					class="slide"
 					style="
-						transform: scale({transform.scale});
-						opacity: {transform.opacity};
-						z-index: {transform.zIndex};
-					"
+				transform: scale({transform.scale});
+				opacity: {transform.opacity};
+				z-index: {transform.zIndex};
+      		"
 				>
 					<svelte:component this={component} />
 				</div>
@@ -157,9 +157,9 @@
 	</div>
 </section> -->
 
+
 <div class="container" style="height: {components.length * 100}vh;">
 	{#each components as component, i}
-		<!-- {@const transform = getTransform(i)} -->
 		{@const transform = componentStyles[i]!}
 		<div
 			class="slide"
@@ -172,13 +172,13 @@
 			<svelte:component this={component} />
 		</div>
 	{/each}
-</div>
+</div> 
 
 <style>
 	.container {
 		position: relative;
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 		/* overflow-x: hidden; */
 	}
 
@@ -188,10 +188,10 @@
 		top: 17%;
 		left: 0;
 		width: 100%;
-		height: 83vh;
+		height: 83%;
 		display: flex;
-		/* align-items: center;
-		justify-content: center; */
+		align-items: center;
+		justify-content: center;
 		transition:
 			transform 0.1s ease-out,
 			opacity 0.1s ease-out;
@@ -219,11 +219,11 @@
 
 	.content-wrapper {
 		position: absolute;
-		height: 100vh;
-		width: 100vw;
-		top: 50%;
+		height: 100%;
+		width: 100%;
+		/* top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%) scale(0.6);
+		transform: translate(-50%, -50%) scale(0.6); */
 		z-index: 1;
 		visibility: hidden;
 		transition: 0.8s ease;
@@ -238,7 +238,7 @@
 	}
 
 	.content-wrapper:has(~ #book-on:checked) {
-		background-color: white;
+		background-color: var(--background-color);
 		transform: translate(-50%, -50%);
 		visibility: visible;
 		z-index: 2;
