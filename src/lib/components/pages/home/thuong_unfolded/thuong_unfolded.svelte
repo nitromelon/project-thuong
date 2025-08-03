@@ -180,15 +180,17 @@
 		width: 100%;
 		height: 100%;
 		/* overflow-x: hidden; */
+		z-index: 0;
+		transition: 0.8s ease;
 	}
 
 	.slide {
-		pointer-events: none;
+		/* pointer-events: none; */
 		position: fixed;
-		top: 17%;
+		top: 7%;
 		left: 0;
 		width: 100%;
-		height: 83%;
+		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -361,7 +363,7 @@
 		line-height: 1.6;
 		opacity: 0;
 		transition: opacity 0.5s ease 0.6s;
-		pointer-events: none;
+		/* pointer-events: none; */
 	}
 
 	.book-container:hover .page-content {

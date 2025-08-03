@@ -39,6 +39,7 @@
 
 <style>
 	.image-layout {
+		margin-top: 2%;
 		display: flex;
 		gap: 20px;
 	}

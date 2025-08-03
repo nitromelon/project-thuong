@@ -194,7 +194,7 @@
 					{display_text($language_preference, "Đơn vị / cá nhân tham gia phỏng vấn", "Interviewees")}
 				</h2>
 				<p>
-					<span style="color: darkblue;"
+					<span style="color: var(--primary-blue);"
 						>{display_text(
 							$language_preference,
 							"Xin chân thành gửi lời cảm ơn tới:",
@@ -228,7 +228,7 @@
 					<br />
 					{display_text($language_preference, "- Anh Tống Đức Hưng", "- Tống Đức Hưng")}
 					<br />
-					<span style="color: darkblue;"
+					<span style="color: var(--primary-blue);"
 						>{display_text(
 							$language_preference,
 							"đã hỗ trợ tham gia phỏng vấn.",
