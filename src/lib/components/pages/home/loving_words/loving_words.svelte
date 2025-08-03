@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onDestroy } from "svelte";
 	import { fade } from "svelte/transition";
 
 	// opnening images
@@ -92,9 +93,13 @@
 		document.body.style.transition = "background-color 0.8s ease";
 		document.body.style.backgroundColor = "";
 	}
+
+	onDestroy(() => {
+		document.body.style.removeProperty("background-color");
+	});
 </script>
 
-<section class="wrapper center" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
+<section class="wrapper" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
 	<div class="slider" style="transform: translateY(-{$currentIndex * 100}vh)">
 		<div class="slide image-container" id="opening">
 			<img src={Opening_HA} alt="" srcset="" id="opening-bottomleft" />

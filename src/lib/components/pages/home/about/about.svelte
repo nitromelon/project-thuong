@@ -35,9 +35,9 @@
 	}
 </script>
 
-<section class="wrapper center" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
+<section class="wrapper" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
 	<div class="slider" style="transform: translateY(-{$currentIndex * 100}vh)">
-		<div class="abstract row slide center">
+		<div class="abstract row slide">
 			<div class="column left">
 				<h2>
 					{display_text($language_preference, "Về dự án", "About")}
@@ -60,7 +60,7 @@
 				<img src={AbstractImg} alt="Haley" class="tilt-element" />
 			</div>
 		</div>
-		<div class="rationale row slide center">
+		<div class="rationale row slide">
 			<div class="column">
 				<img src={RationaleImg} alt="Rationale" class="tilt-element" />
 			</div>
@@ -86,7 +86,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="message row slide center">
+		<div class="message row slide">
 			<div class="column left">
 				<h2>
 					{display_text($language_preference, "Về dự án", "About")}
@@ -117,44 +117,26 @@
 		}
 	}
 
-	.scroll-hint {
-		margin-top: 100px;
+	.wrapper {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
-		opacity: 0.8;
-		animation: bounce 2s infinite;
+		justify-content: center;
+		margin: 0 auto;
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+		position: fixed;
 	}
 
-	.arrow {
-		font-size: 1.5rem;
-		animation: float 1.5s ease-in-out infinite alternate;
+	.slider {
+		width: 80%;
+		height: 80%;
+		position: relative;
+		perspective: 500px;
+		transition: transform 0.8s ease;
 	}
 
-	@keyframes bounce {
-		0%,
-		20%,
-		50%,
-		80%,
-		100% {
-			transform: translateY(0);
-		}
-		40% {
-			transform: translateY(-8px);
-		}
-		60% {
-			transform: translateY(-4px);
-		}
-	}
-
-	@keyframes float {
-		from {
-			transform: translateY(0);
-		}
-		to {
-			transform: translateY(-10px);
-		}
+	.slide {
+		height: 100vh;
 	}
 
 	.row {
@@ -199,28 +181,6 @@
 		font-size: 1.5em;
 	}
 
-	.wrapper {
-		display: flex;
-		justify-content: center;
-		margin: 0 auto;
-		width: 100%;
-		height: 100vh;
-		overflow: hidden;
-		position: fixed;
-	}
-
-	.slider {
-		width: 80%;
-		height: 80%;
-		position: relative;
-		perspective: 500px;
-		transition: transform 0.8s ease;
-	}
-
-	.slide {
-		height: 100vh;
-	}
-
 	.tilt-element {
 		animation: tilt 2s infinite alternate ease-in-out;
 	}
@@ -237,4 +197,43 @@
 		}
 	}
 
+	.scroll-hint {
+		margin-top: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		opacity: 0.8;
+		animation: bounce 2s infinite;
+	}
+
+	.arrow {
+		font-size: 1.5rem;
+		animation: float 1.5s ease-in-out infinite alternate;
+	}
+
+	@keyframes bounce {
+		0%,
+		20%,
+		50%,
+		80%,
+		100% {
+			transform: translateY(0);
+		}
+		40% {
+			transform: translateY(-8px);
+		}
+		60% {
+			transform: translateY(-4px);
+		}
+	}
+
+	@keyframes float {
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(-10px);
+		}
+	}
 </style>
