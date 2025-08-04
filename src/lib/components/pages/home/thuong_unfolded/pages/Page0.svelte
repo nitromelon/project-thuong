@@ -28,7 +28,9 @@
 				<div class="book-cover"></div>
 				<div class="book-pages">
 					<div class="page-content">
-						<h1>{display_text($language_preference, "Chạm vào chữ", "'Thương' unfolded")}</h1>
+						<h1>
+							{@html display_text($language_preference, "Chạm <span>vào</span> chữ", "'Thương' <span>unfolded</span>")}
+						</h1>
 					</div>
 				</div>
 			</div>
@@ -187,5 +189,10 @@
 		transition: opacity 0.5s ease 0.6s;
 		font-size: 1.5em;
 		text-align: center;
+	}
+
+	h1 :global(span) {
+		font-family: "Crimson Pro", serif;
+		color: var(--dark-gold);
 	}
 </style>

@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from "svelte";
 
-    import language_preference, { display_text } from "$lib/components/language/config";
+	import language_preference, { display_text } from "$lib/components/language/config";
 
-    onMount(() => {
+	onMount(() => {
 		const checkbox = document.getElementById("book-on2");
 		if (checkbox) {
 			checkbox.addEventListener("change", function () {
@@ -24,11 +24,12 @@
 		<div class="book-container2">
 			<div class="book2">
 				<div class="book-spine2"></div>
-				<div class="book-cover2">
-				</div>
+				<div class="book-cover2"></div>
 				<div class="book-pages2">
 					<div class="page-content2">
-						<h1>{display_text($language_preference, "Chạm vào chữ", "'Thương' unfolded")}</h1>
+						<h1>
+							{@html display_text($language_preference, "Chạm <span>vào</span> chữ", "'Thương' <span>unfolded</span>")}
+						</h1>
 					</div>
 				</div>
 			</div>
@@ -37,6 +38,11 @@
 </section>
 
 <style>
+	h1 :global(span) {
+		font-family: "Crimson Pro", serif;
+		color: var(--dark-gold);
+	}
+
 	.wrapper2 {
 		perspective: 1200px;
 		display: flex;
@@ -72,7 +78,7 @@
 
 	#book-on2:checked ~ .book-container2 {
 		/* transform: rotateX(0deg) rotateY(-15deg) translateX(50%) scale(3); */
-        transform: rotateX(75deg) rotateY(10deg) translateX(0);
+		transform: rotateX(75deg) rotateY(10deg) translateX(0);
 	}
 
 	#book-on2:checked ~ .book-container2 .book-cover2 {
@@ -82,7 +88,6 @@
 	#book-on2:checked ~ .book-container2 .book2 {
 		transform: translateX(0);
 	}
-
 
 	.content-wrapper2:has(~ #book-on2:checked) {
 		background-color: var(--background-color);
@@ -106,7 +111,7 @@
 		height: 100%;
 		transform-style: preserve-3d;
 		transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-        transform: translateX(20px)
+		transform: translateX(20px);
 	}
 
 	.book-spine2 {
@@ -133,7 +138,7 @@
 		box-shadow:
 			0 10px 30px rgba(0, 0, 0, 0.3),
 			inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transform: rotateY(-140deg)
+		transform: rotateY(-140deg);
 	}
 
 	.book-cover2::before {
@@ -181,9 +186,7 @@
 		line-height: 1.6;
 		opacity: 1;
 		transition: opacity 0.5s ease 0.6s;
-        font-size: 1.5em;
-        text-align: center;
-    	}
-
-
+		font-size: 1.5em;
+		text-align: center;
+	}
 </style>
