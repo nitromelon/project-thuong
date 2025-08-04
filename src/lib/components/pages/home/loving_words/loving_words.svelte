@@ -38,8 +38,7 @@
 
 	// interview images
 	import Interview_BG from "$lib/assets/images/loving_words/interview/background.svg";
-	import Interview_BG1 from "$lib/assets/images/loving_words/interview/background1.svg";
-	import Interview_BG2 from "$lib/assets/images/loving_words/interview/background2.svg";
+	import Interview_REM from "$lib/assets/images/loving_words/interview/rem.svg";
 	import Interview_BG3 from "$lib/assets/images/loving_words/interview/background3.svg";
 	import Interview_BG4 from "$lib/assets/images/loving_words/interview/background4.svg";
 
@@ -105,6 +104,7 @@
 
 <section class="wrapper" on:wheel={handleWheel} in:fade={{ duration: 400 }}>
 	<div class="slider" style="transform: translateY(-{$currentIndex * 100}vh)">
+
 		<div class="slide image-container" id="opening">
 			<img src={Opening_HA} alt="" srcset="" id="opening-bottomleft" />
 			<img src={Opening_Butterfly} alt="" srcset="" id="opening-butterfly" />
@@ -188,8 +188,7 @@
 
 		<div class="slide image-container" id="interview">
 			<img src={Interview_BG} alt="" srcset="" id="interview-bg" />
-			<img src={Interview_BG1} alt="" srcset="" id="interview-bg1" />
-			<img src={Interview_BG2} alt="" srcset="" id="interview-bg2" />
+			<img src={Interview_REM} alt="" srcset="" id="interview-bg1" />
 			<img src={Interview_BG3} alt="" srcset="" id="interview-bg3" />
 			<img src={Interview_BG4} alt="" srcset="" id="interview-bg4" />
 
@@ -567,14 +566,8 @@
 	#interview-bg1 {
 		position: absolute;
 		width: 100%;
-		top: -25%;
-		left: -25%;
-	}
-	#interview-bg2 {
-		position: absolute;
-		width: 100%;
-		top: -25%;
-		right: -25%;
+		top: -30%;
+		left: 0%;
 	}
 	#interview-bg3 {
 		position: absolute;
