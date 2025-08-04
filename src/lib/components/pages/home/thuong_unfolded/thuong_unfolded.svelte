@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Page0 from "./pages/Page0.svelte";
 	import Page1 from "./pages/Page1.svelte";
 	import Page2 from "./pages/Page2.svelte";
 	import Page3 from "./pages/Page3.svelte";
@@ -25,14 +26,15 @@
 	import Page24 from "./pages/Page24.svelte";
 	import Page25 from "./pages/Page25.svelte";
 	import Page26 from "./pages/Page26.svelte";
+	import Page27 from "./pages/Page27.svelte";
 
 	import { onMount } from "svelte";
-	import language_preference, { display_text } from "$lib/components/language/config";
 
 	let scrollY = -0.1;
 	let windowHeight = 0;
 
 	const components = [
+		Page0,
 		Page1,
 		Page2,
 		Page3,
@@ -59,6 +61,7 @@
 		Page24,
 		Page25,
 		Page26,
+		Page27,
 	];
 
 	let componentStyles = Array.from({ length: components.length }, (_, index) => getTransform(index));
