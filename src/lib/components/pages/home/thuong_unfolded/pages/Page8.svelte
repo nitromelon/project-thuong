@@ -36,7 +36,6 @@
 			)}
 		</p>
 	</div>
-	<br />
 	<div class="three-columns">
 		<img src={Img1} alt="" />
 		<p>
@@ -93,7 +92,7 @@
 
 	.three-columns {
 		display: grid;
-		grid-template-columns: 33% 33% 30%;
+		grid-template-columns: 33% 33% 31%;
 		gap: 20px;
 	}
 
@@ -107,8 +106,9 @@
 
 	.footer {
 		position: absolute;
-		top: 83%;
-		width: 80%;
+		top: 85%;
+		left: 0%;
+		width: 100%;
         height: auto;
         background-color: var(--primary-blue);
         text-align: center;

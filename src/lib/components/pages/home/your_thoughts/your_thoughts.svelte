@@ -283,7 +283,7 @@
 			transform: translateY(0);
 		}
 		50% {
-			transform: translateY(10px); /* Adjust for desired bounce distance */
+			transform: translateY(15px); /* Adjust for desired bounce distance */
 		}
 	}
 

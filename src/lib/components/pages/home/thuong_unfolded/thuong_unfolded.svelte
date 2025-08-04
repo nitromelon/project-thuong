@@ -86,7 +86,7 @@
 			return {
 				scale,
 				opacity,   // TODO: Adjust opacity based on progress
-				zIndex: components.length - index + 10, // Bring to front
+				zIndex: components.length - index + 30, // Bring to front
 			};
 		} else {
 			// Section has been passed
@@ -185,7 +185,6 @@
 	}
 
 	.slide {
-		/* pointer-events: none; */
 		position: fixed;
 		top: 7%;
 		left: 0;

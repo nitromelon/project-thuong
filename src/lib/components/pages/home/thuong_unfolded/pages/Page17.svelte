@@ -14,10 +14,10 @@
     <br />
 
 	<p>
-		{display_text(
+		{@html display_text(
 			$language_preference,
-			"Để hiểu rõ hơn về tầm quan trọng và sự kỳ diệu của ngữ điệu trong tiếng Việt, đặc biệt là cách nó \"vẽ nghĩa\" cho từng lời nói, mời bạn theo dõi cuộc trò chuyện của mình với MC Mỹ Vân - một người có kinh nghiệm dày dạn trong việc sử dụng ngôn ngữ và giọng nói để truyền tải cảm xúc.",
-			"To better understand the importance and magic of intonation in Vietnamese, especially how it \"paints meaning\" onto every word, I invite you to watch my conversation with MC My Van - an expert in using language and voice to convey emotion.",
+			"Để hiểu rõ hơn về tầm quan trọng và sự kỳ diệu của ngữ điệu trong tiếng Việt, đặc biệt là cách nó \"vẽ nghĩa\" cho từng lời nói, mời bạn theo dõi cuộc trò chuyện của mình với <strong>MC Mỹ Vân</strong> - một người có kinh nghiệm dày dạn trong việc sử dụng ngôn ngữ và giọng nói để truyền tải cảm xúc.",
+			"To better understand the importance and magic of intonation in Vietnamese, especially how it \"paints meaning\" onto every word, I invite you to watch my conversation with <strong>MC My Van</strong> - an expert in using language and voice to convey emotion.",
 		)}
 	</p>
 
@@ -31,10 +31,8 @@
 <style>
 	section {
         padding-top: 2em;
-		width: 60%;
+		width: 80%;
 		height: 70%;
-		border-color: black;
-		border-style: solid;
 	}
 
 	h2 {
@@ -53,6 +51,13 @@
 		font-weight: bold;
 		font-family: "Josefin Sans", sans-serif;
 		color: var(--brown);
+	}
+
+	p :global {
+		strong {
+			font-weight: bold;
+			color: var(--red);
+		}
 	}
 
 </style>

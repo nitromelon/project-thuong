@@ -65,8 +65,6 @@
 	section {
 		width: 80%;
 		height: 70%;
-		border-color: black;
-		border-style: solid;
 	}
 
     h2 {
