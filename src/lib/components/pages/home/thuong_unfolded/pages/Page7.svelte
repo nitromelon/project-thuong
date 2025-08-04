@@ -25,7 +25,7 @@
         {@html display_text($language_preference, "Vậy \"thương\" là <span>từ loại gì</span>?", "So, what <span>part of speech</span> is \"thương\"?")}
     </h1>
 
-    <br>
+    <br> <br>
 
     <h3>
         {@html display_text($language_preference, "\"thương\" <span>đứng ở đâu</span> trong dòng chảy ngôn ngữ thường ngày?</span>", "And <span>where does it usually stand</span> in the flow of everyday language?")}
