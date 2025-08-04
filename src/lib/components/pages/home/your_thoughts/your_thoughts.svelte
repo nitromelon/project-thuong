@@ -13,21 +13,20 @@
 <section in:fade={{ duration: 400 }}>
 	<div class="row">
 		<div class="column left">
-			<a href="https://docs.google.com/forms/d/1r4tmxsAZrvFGk8evYpCHVR0bqA2DDN1PKQisAuPuGs8/preview?edit_requested=true" target="_blank">
+			<span>{display_text($language_preference, "Cảm ơn bạn đã ghé thăm", "Thank you for visiting")}</span>
+
+			<a
+				href="https://docs.google.com/forms/d/1r4tmxsAZrvFGk8evYpCHVR0bqA2DDN1PKQisAuPuGs8/preview?edit_requested=true"
+				target="_blank"
+			>
 				<p>
 					{display_text($language_preference, "'Thương'", "What is your")}
-					<br/>
+					<br />
 					{display_text($language_preference, "của bạn là gì?", "'Thương'?")}
 				</p>
 				<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170.23 808.64">
 					<defs>
 						<style>
-							.cls-1 {
-								fill: none;
-								stroke: #1f3555;
-								stroke-miterlimit: 10;
-								stroke-width: 6px;
-							}
 						</style>
 					</defs>
 					<path
@@ -215,25 +214,57 @@
 </section>
 
 <style>
-	* {
+	section {
 		overflow: hidden;
 		width: 100%;
 	}
 
 	.row {
 		display: flex;
+		transform: translateX(-100vw); /* Start off-screen to the left */
+		animation: flyInAnimation 5s ease-out forwards;
+	}
+
+	@keyframes flyInAnimation {
+		to {
+			opacity: 1;
+			transform: translateX(0); /* End at its natural position */
+		}
 	}
 
 	.column {
 		flex: 50%;
 	}
+	
+	span {
+		position: absolute;
+		left: 7%;
+		top: 10%;
+		font-size: 2em;
+		text-align: center;
+		width: 10%;
+		font-family: 'TTNorms', sans-serif;
+	}
 
 	a p {
 		position: absolute;
-		left: -20%;
-		top: 50%;
+		left: 23%;
+		top: 45%;
 		font-size: 2em;
 		text-align: center;
+		animation: scaleUpDown 2s infinite alternate;
+	}
+
+	@keyframes scaleUpDown {
+		0% {
+			transform: scale(1); /* Original size */
+		}
+		50% {
+			transform: scale(1.2); /* Scale up to 1.5 times */
+		}
+		100% {
+			transform: scale(1); /* Return to original size */
+		}
 	}
 
 	.animated-svg {
@@ -254,5 +285,12 @@
 		50% {
 			transform: translateY(10px); /* Adjust for desired bounce distance */
 		}
+	}
+
+	.cls-1 {
+		fill: none;
+		stroke: #1f3555;
+		stroke-miterlimit: 10;
+		stroke-width: 6px;
 	}
 </style>

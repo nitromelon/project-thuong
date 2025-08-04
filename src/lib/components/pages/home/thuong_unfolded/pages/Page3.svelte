@@ -5,10 +5,10 @@
 <div class="row">
 	<div class="column">
 		<p>
-			{display_text(
+			{@html display_text(
 				$language_preference,
-				'\'Thương\' không đơn thuần là "love" hay "pity" trong tiếng Anh. Nó vượt ra ngoài mọi khuôn khổ dịch thuật, ôm trọn một phổ cảm xúc đa tầng mà hiếm ngôn ngữ nào có từ tương đương chính xác.',
-				'"Thương" is not simply "love" or "pity" in English. It transcends all translational boundaries, embracing a multi-layered spectrum of emotions that few languages have a precise equivalent for.',
+				'\'Thương\' không đơn thuần là <u>"love"</u> hay <u>"pity"</u> trong tiếng Anh. Nó vượt ra ngoài mọi khuôn khổ dịch thuật, ôm trọn một phổ cảm xúc đa tầng mà hiếm ngôn ngữ nào có từ tương đương chính xác.',
+				'"Thương" is not simply <u>"love"</u> or <u>"pity"</u> in English. It transcends all translational boundaries, embracing a multi-layered spectrum of emotions that few languages have a precise equivalent for.',
 			)}
 		</p>
 		<h2>
@@ -30,8 +30,8 @@
 <style>
 	.row {
 		display: flex;
-		gap: 20px;
-        margin-left: 20%;
+		gap: 10%;
+        margin-left: 10%;
 	}
 
 	.column {
@@ -43,7 +43,7 @@
 	}
 
 	.right {
-		margin-top: 10%;
+		margin-top: 12%;
 	}
 
     p {
@@ -52,8 +52,14 @@
     }
 
     h2 {
-		margin-top: 30%;
         font-size: 3em;
+        position: absolute;
+        top: 75%;
     }
     
+	p :global(u) {
+		text-decoration: underline;
+		font-style: italic;
+	}
+
 </style>

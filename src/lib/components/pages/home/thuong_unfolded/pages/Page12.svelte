@@ -26,7 +26,7 @@
 
 <style>
     section {
-		width: 60%;
+		width: 80%;
 		height: 70%;
 	}
 
