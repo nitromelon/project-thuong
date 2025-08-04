@@ -177,10 +177,10 @@
 				</h2>
 				<br />
 				<p>
-					{display_text(
+					{@html display_text(
 						$language_preference,
-						"Xin chân thành cảm ơn thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên. Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
-						"Send my profound gratitude to Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe, esteemed mentors who have accompanied, advised, and inspired this project from its inception. Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
+						"Xin chân thành cảm ơn <strong>thầy Đức Anh, thầy Tony, cô Thu Huyền, cô Hoành Oanh</strong> - những người đã luôn đồng hành, góp ý và truyền cảm hứng cho dự án này từ những bước đầu tiên. Chính sự kiên nhẫn, lắng nghe và định hướng từ thầy/cô đã giúp “Chữ và Nghĩa” giữ được tinh thần nghiêm túc nhưng vẫn đầy cảm xúc, như chính chữ “thương” mà dự án theo đuổi.",
+						"Send my profound gratitude to <strong>Mr. Anthony, Mr. Tony, Ms. Vanessa, and Mrs. Phoebe</strong>, esteemed mentors who have accompanied, advised, and inspired this project from its inception. Their patience, attentive guidance, and insightful direction have enabled “Chữ và Nghĩa” to maintain a balance of scholarly rigor and emotional depth, mirroring the essence of 'thương' that this project seeks to illuminate.",
 					)}
 				</p>
 			</div>
@@ -260,10 +260,10 @@
 				</h3>
 				<br />
 				<p>
-					{display_text(
+					{@html display_text(
 						$language_preference,
-						"Xin gửi lời cảm ơn đến Việt Anh, anh Đức Anh và Đặng Nguyễn vì đã góp công, góp sức và đồng hành cùng mình qua từng khung hình, từng bản dựng, từng chi tiết nhỏ nhất.",
-						"Conveying my deepest gratitude to Việt Anh, Đức Anh, and Đặng Nguyễn, who, with their tireless efforts and unwavering support, have accompanied me through every frame, every edit, and the smallest details; their dedication has truly brought this project to life.",
+						"Xin gửi lời cảm ơn đến <strong>Việt Anh</strong>, anh <strong>Đức Anh</strong> và <strong>Đặng Nguyễn</strong> vì đã góp công, góp sức và đồng hành cùng mình qua từng khung hình, từng bản dựng, từng chi tiết nhỏ nhất.",
+						"Conveying my deepest gratitude to <strong>Việt Anh</strong>, <strong>Đức Anh</strong>, and <strong>Đặng Nguyễn</strong>, who, with their tireless efforts and unwavering support, have accompanied me through every frame, every edit, and the smallest details; their dedication has truly brought this project to life.",
 					)}
 				</p>
 			</div>
@@ -402,6 +402,7 @@
 	}
 	#family p {
 		text-align: center;
+		color: var(--primary-blue);
 	}
 	#family-brother {
 		position: absolute;
@@ -554,6 +555,9 @@
 		right: -15%;
 		width: 100%;
 	}
+	#lecturers p {
+		color: var(--primary-blue);
+	}
 
 	/* -=------------ INTERVIEW ------------ */
 	#interview-bg {
@@ -664,8 +668,6 @@
 		right: 2%;
 		width: 30%;
 	}
-
-
 	#production h3 {
 		text-align: center;
 		font-size: 2.5em;
@@ -674,6 +676,10 @@
 		text-align: center;
 		width: 60%;
 		margin-left: 20%;
+		color: var(--primary-blue);
+	}
+	p :global(strong) {
+		font-weight: bold;
 	}
 
 	/* -=------------ FOLLOWERS ------------ */
