@@ -2,7 +2,7 @@
 	import language_preference, { display_text } from "$lib/components/language/config";
 </script>
 
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854.87 774.39">
+<svg class="landing-svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854.87 774.39">
 	<defs>
 		<style>
 			.cls-1,
@@ -236,7 +236,7 @@
 </section>
 
 <style>
-	#Layer_1 {
+	.landing-svg {
 		/* display: block;
 		margin-right: auto;
         margin-top: 2em; */
