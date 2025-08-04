@@ -82,10 +82,10 @@
 		} else if (scrollY >= componentStart && scrollY < componentEnd) {
 			// Current section being scrolled
 			const scale = 1 + progress * 0.5; // Scale up to 1.5x
-			const opacity = 1 - progress; // Fade out
+			const opacity = 1; // Fade out  	1 - progress
 			return {
 				scale,
-				opacity,
+				opacity,   // TODO: Adjust opacity based on progress
 				zIndex: components.length - index + 10, // Bring to front
 			};
 		} else {

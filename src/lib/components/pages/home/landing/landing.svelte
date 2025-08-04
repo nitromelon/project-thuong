@@ -145,11 +145,11 @@
 			d="M255.56,277.47c-.3,1.51-.59,4.18.45,7.23,1.98,5.8,7.24,8.49,8.47,9.08-.89,2.76-1.78,5.51-2.68,8.27"
 		/>
 		<path
-			class="cls-5 animated-path fade-in"
+			class="cls-5 fade-in"
 			d="M129.68,133.77c.53-2.35-4.13-5.35-9-8.49-3.83-2.46-6.48-4.12-8.88-3.27-1.74.61-2.88,2.38-2.96,4.08-.13,2.5,2.02,4.43,3.97,6.18,1.13,1.01,3.08,2.77,6.07,3.62,4.44,1.27,10.26.29,10.81-2.12Z"
 		/>
 		<path
-			class="cls-5 animated-path fade-in"
+			class="cls-5 fade-in"
 			d="M332.7,214.57c-2.17-.4-3.96,3.18-5.82,6.92-1.46,2.94-2.44,4.98-1.25,6.81.86,1.33,2.63,2.19,4.14,2.25,2.23.09,3.53-1.56,4.72-3.06.68-.87,1.87-2.37,2.07-4.66.3-3.4-1.63-7.86-3.86-8.26Z"
 		/>
 		<path class="cls-3 animated-path" d="M221.12,157c4.56,2.14,15.95,6.78,30.82,5.4,11.36-1.05,19.63-5.14,23.86-7.62" />
@@ -349,10 +349,10 @@
 		animation-delay: 3.4s;
 	}
 	.animated-path:nth-child(19) {
-		animation-delay: 3.6s;
+		animation-delay: 3s;
 	}
 	.animated-path:nth-child(20) {
-		animation-delay: 3.8s;
+		animation-delay: 3s;
 	}
 	.animated-path:nth-child(n + 21) {
 		animation-delay: 4s;
@@ -368,7 +368,7 @@
 	.fade-in {
 		opacity: 0;
 		animation: fade-in 1s ease-in-out forwards;
-		animation-delay: 1s;
+		animation-delay: 2s;
 	}
 
 	@keyframes fade-in {

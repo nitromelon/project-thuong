@@ -10,6 +10,8 @@
 		<span>{display_text($language_preference, "kể", "craft")}</span>
 		{display_text($language_preference, "chuyện", "")}
 	</h2>
+
+	<br/>
 	
 	<YtbFrame title="" id="xKms7I9sBKM"></YtbFrame>
 
@@ -23,7 +25,7 @@
 <style>
     section {
 		margin-top: -6%;
-		width: 60%;
+		width: 80%;
 		height: 60%;
 	}
 

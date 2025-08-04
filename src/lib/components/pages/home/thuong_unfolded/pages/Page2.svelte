@@ -47,7 +47,8 @@
 	.left-images {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 20px;
+		margin-top: auto;
 	}
 
 	.right-image {
@@ -61,7 +62,7 @@
 	}
 
 	.text-content {
-		width: 30%;
+		width: 40%;
         padding: 20px;
 	}
 
@@ -72,6 +73,8 @@
 
     h2 {
         font-size: 3em;
+        position: absolute;
+        top: 80%;
     }
     
 </style>

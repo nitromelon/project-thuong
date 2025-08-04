@@ -52,9 +52,13 @@
 	import Production_DucAnh from "$lib/assets/images/loving_words/production/DucAnh.svg";
 	import Production_VietAnh from "$lib/assets/images/loving_words/production/VietAnh.svg";
 	import Production_DangNguyen from "$lib/assets/images/loving_words/production/DangNguyen.svg";
+	import Production_Laptop from "$lib/assets/images/loving_words/production/laptop.svg";
 
 	// followers images
 	import FollowersImg from "$lib/assets/images/loving_words/followers.svg";
+	// import Followers_HA from "$lib/assets/images/loving_words/followers/ha.svg";
+	// import Followers_laptop from "$lib/assets/images/loving_words/followers/lap.svg";
+	// import Followers_light from "$lib/assets/images/loving_words/followers/light.svg";
 
 	import language_preference, { display_text } from "$lib/components/language/config";
 	import { currentIndex, isScrollProgress } from "../current_index.svelte";
@@ -249,6 +253,7 @@
 			<img src={Production_DucAnh} alt="" srcset="" id="production-ducanh" />
 			<img src={Production_VietAnh} alt="" srcset="" id="production-vietanh" />
 			<img src={Production_DangNguyen} alt="" srcset="" id="production-dangnguyen" />
+			<img src={Production_Laptop} alt="" srcset="" id="production-laptop" />
 
 			<div class="text-overlay">
 				<h3>
@@ -266,7 +271,11 @@
 		</div>
 
 		<div class="slide image-container" id="followers">
-			<img src={FollowersImg} alt="" srcset="" />
+			<img src={FollowersImg} alt="" id="followers-img" />
+			<!-- <img src={Followers_HA} alt="" srcset="" id="followers-HA"/>
+			<img src={Followers_laptop} alt="" srcset="" id="followers-laptop"/>
+			<img src={Followers_light} alt="" srcset="" id="followers-light"/> -->
+
 			<div class="text-overlay">
 				<p>
 					{display_text(
@@ -424,14 +433,14 @@
 	#family-bg2 {
 		position: absolute;
 		bottom: 15%;
-		left: 0;
+		left: -6%;
 		width: 50%;
 		height: 50%;
 	}
 	#family-bg3 {
 		position: absolute;
 		bottom: 20%;
-		right: -6%;
+		right: 0;
 		width: 50%;
 		height: 50%;
 	}
@@ -512,9 +521,9 @@
 	}
 	#lecturers-bg3 {
 		position: absolute;
-		top: 0%;
-		right: 6%;
-		width: 50%;
+		top: -3%;
+		right: -15%;
+		width: 100%;
 	}
 	#lecturers-bg4 {
 		position: absolute;
@@ -522,17 +531,11 @@
 		left: 0%;
 		width: 100%;
 	}
-	#lecturers-mrducanh {
-		position: absolute;
-		top: -1%;
-		right: 2%;
-		width: 60%;
-	}
 	#lecturers-mrsoanh {
 		position: absolute;
 		top: 0%;
-		left: 5%;
-		width: 50%;
+		left: -20%;
+		width: 100%;
 	}
 	#lecturers-mrtony {
 		position: absolute;
@@ -543,8 +546,14 @@
 	#lecturers-msthuhuyen {
 		position: absolute;
 		top: 0%;
-		right: 1%;
-		width: 60%;
+		right: -15%;
+		width: 100%;
+	}
+	#lecturers-mrducanh {
+		position: absolute;
+		top: -3%;
+		right: -15%;
+		width: 100%;
 	}
 
 	/* -=------------ INTERVIEW ------------ */
@@ -593,6 +602,9 @@
 	}
 
 	/* -=------------ PRODUCTION ------------ */
+	#production {
+		margin-top: 3vh;
+	}
 	#production .text-overlay {
 		top: 25%;
 		width: 60%;
@@ -623,9 +635,10 @@
 	}
 	#production-star2 {
 		position: absolute;
-		top: 10%;
-		left: 2%;
+		top: 0%;
+		left: -40%;
 		width: 50%;
+		transform: rotate(165deg);
 	}
 	#production-star3 {
 		position: absolute;
@@ -642,7 +655,7 @@
 	}
 	#production-ducanh {
 		position: absolute;
-		bottom: 0;
+		bottom: 5%;
 		right: -5%;
 		width: 30%;
 	}
@@ -652,6 +665,13 @@
 		right: 10%;
 		width: 20%;
 	}
+	#production-laptop {
+		position: absolute;
+		bottom: -12%;
+		right: 2%;
+		width: 30%;
+	}
+
 
 	#production h3 {
 		text-align: center;
@@ -668,10 +688,27 @@
 		/* background-color: var(--primary-blue); */
 		color: beige;
 	}
-	#followers img {
-		width: 80%;
-		margin-left: 10%;
+	/* #followers-HA {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
+	#followers-laptop {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+	#followers-light {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	} */
 	#followers .text-overlay {
 		position: absolute;
 		top: 40%;
@@ -682,5 +719,7 @@
 	#followers p {
 		font-family: "Crimson Pro", serif;
 		text-align: center;
+		width: 70%;
+		font-size: 1.2em;
 	}
 </style>

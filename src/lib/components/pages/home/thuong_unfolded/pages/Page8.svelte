@@ -62,7 +62,7 @@
 
 <style>
 	section {
-		width: 60%;
+		width: 80%;
 		height: 70%;
 	}
 
@@ -107,8 +107,8 @@
 
 	.footer {
 		position: absolute;
-		top: 80%;
-		width: 60%;
+		top: 83%;
+		width: 80%;
         height: auto;
         background-color: var(--primary-blue);
         text-align: center;

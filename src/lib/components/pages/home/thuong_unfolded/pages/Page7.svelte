@@ -35,7 +35,7 @@
 
 <style>
 	section {
-		width: 60%;
+		width: 70%;
 		height: 70%;
 	}
 
@@ -58,6 +58,7 @@
 
     p {
         font-size: 1.5em;
+        text-align: justify;
     }
 
     h1 {

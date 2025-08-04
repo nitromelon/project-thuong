@@ -23,7 +23,7 @@
 
 <style>
 	section {
-		width: 60%;
+		width: 80%;
 		height: 70%;
 	}
 
@@ -35,7 +35,7 @@
 
     p {
         font-size: 1.5em;
-        line-height: 1.2;
+        line-height: 1.5;
         margin-top: 20px;
         text-align: justify;
 		color: var(--primary-blue);
