@@ -2,7 +2,13 @@
 	import language_preference, { display_text } from "$lib/components/language/config";
 </script>
 
-<svg class="landing-svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854.87 774.39">
+<svg
+	class="landing-svg"
+	id="Layer_1"
+	data-name="Layer 1"
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 854.87 774.39"
+>
 	<defs>
 		<style>
 			.cls-1,
@@ -236,32 +242,6 @@
 </section>
 
 <style>
-	.landing-svg {
-		/* display: block;
-		margin-right: auto;
-        margin-top: 2em; */
-		float: right;
-		margin-right: 10%;
-		margin-top: 2em;
-		width: 35%;
-
-		/* Apply animation */
-		animation-name: bounce;
-		animation-duration: 1.5s;
-		animation-iteration-count: infinite;
-		animation-timing-function: ease-in-out;
-	}
-
-	@keyframes bounce {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(10px); /* Adjust for desired bounce distance */
-		}
-	}
-
 	section {
 		font-size: 1.7em;
 		color: var(--primary-blue);
@@ -381,5 +361,28 @@
 		display: inline-block;
 		margin-top: 15px;
 		margin-left: 5px;
+	}
+
+	.landing-svg {
+		float: right;
+		margin-right: 10%;
+		margin-top: 2em;
+		width: 35%;
+
+		/* Apply animation */
+		animation-name: bounce;
+		animation-duration: 1.5s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+	}
+
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(10px);
+		}
 	}
 </style>
