@@ -82,7 +82,7 @@
 	}
 
 	#book-on2:checked ~ .book-container2 .book-cover2 {
-		transform: rotateY(0deg);
+		transform: rotateY(0deg) translateZ(20px);
 	}
 
 	#book-on2:checked ~ .book-container2 .book2 {
@@ -138,7 +138,7 @@
 		box-shadow:
 			0 10px 30px rgba(0, 0, 0, 0.3),
 			inset 0 1px 0 rgba(255, 255, 255, 0.1);
-		transform: rotateY(-140deg);
+		transform: rotateY(-140deg) translateZ(20px);
 	}
 
 	.book-cover2::before {

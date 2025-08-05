@@ -20,7 +20,6 @@
 <section>
 	<div class="wrapper">
 		<label for="book-on"></label>
-		<div class="content-wrapper"></div>
 		<input type="checkbox" name="" id="book-on" autocomplete="off" />
 		<div class="book-container">
 			<div class="book">
@@ -139,7 +138,7 @@
 		box-shadow:
 			0 10px 30px rgba(0, 0, 0, 0.3),
 			inset 0 1px 0 rgba(255, 255, 255, 0.1);
-		transform: rotateY(0deg);
+		transform: rotateY(0deg) translateZ(20px);
 	}
 
 	.book-cover::before {
